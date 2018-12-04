@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"CCBDBContext","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":true,"OutputPath":"Data\\Persistent","ProjectRootNamespace":"CCB","SelectedToBeGenerated":0,"Tables":["dbo.ItemAllocation","dbo.Items","dbo.Logbook","dbo.Project","dbo.Staff"],"UseDatabaseNames":false,"UseFluentApiOnly":true,"UseHandleBars":false,"UseInflector":true}

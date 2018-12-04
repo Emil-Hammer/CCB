@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using CCB.Views.App;
+using CCB.Views.Domain;
 
 namespace CCB
 {
