@@ -7,18 +7,18 @@ using CCB.ViewModels.Data;
 
 namespace CCB.ViewModels.Page
 {
-    public class StaffPageViewModel : PageViewModelAppBase<Staff>
+    public class InventoryPageViewModel : PageViewModelAppBase<Item>
     {
-        public StaffPageViewModel()
-            : base(DomainModel.Catalogs.StaffCatalog,
+        public InventoryPageViewModel()
+            : base(DomainModel.Catalogs.ItemCatalog,
                 new List<string> { "Name", "CarsSold" },
                 new List<string> { "Image", "Title", "Phone", "Email", "Employed" })
         {
         }
 
-        public override IDataWrapper<Staff> CreateDataViewModel(Staff obj)
+        public override IDataWrapper<Item> CreateDataViewModel(Item obj)
         {
-            return new StaffDataViewModel(obj);
+            return new InventoryDataViewModel(obj);
         }
     }
 }

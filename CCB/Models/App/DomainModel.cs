@@ -10,6 +10,7 @@ namespace CCB.Models.App
         private InventoryCatalog _inventoryCatalog;
         private ProjectCatalog _projectCatalog;
         private StaffCatalog _staffCatalog;
+        private LogbookCatalog _logbookCatalog;
         #endregion
 
         #region Events
@@ -39,13 +40,15 @@ namespace CCB.Models.App
             _inventoryCatalog = new InventoryCatalog();
             _projectCatalog = new ProjectCatalog();
             _staffCatalog = new StaffCatalog();
+            _logbookCatalog = new LogbookCatalog();
         }
         #endregion
 
         #region Properties
-        public InventoryCatalog Cars { get { return _inventoryCatalog; } }
-        public ProjectCatalog Customers { get { return _projectCatalog; } }
-        public StaffCatalog Employees { get { return _staffCatalog; } }
+        public InventoryCatalog ItemCatalog { get { return _inventoryCatalog; } }
+        public ProjectCatalog ProjectCatalog { get { return _projectCatalog; } }
+        public StaffCatalog StaffCatalog { get { return _staffCatalog; } }
+        public LogbookCatalog LogbookCatalog { get { return _logbookCatalog; } }
         #endregion
 
         #region Persistency methods

@@ -5,6 +5,7 @@
     xmlns:local="using:CCB.Views.Domain"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="using:CCB.ViewModels.Page"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -25,7 +26,7 @@
             <ColumnDefinition Width="0.33*"/>
             <ColumnDefinition Width="0.33*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.Column="1" Source="..\Assets\img\headerhjside.png" />
+        <!--<Image Grid.Row="0" Grid.Column="1" Source="..\Assets\img\headerhjside.png" />-->
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"/>
