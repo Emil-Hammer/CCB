@@ -8,7 +8,39 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.DataContext>
+        <page:FrontPageViewModel/>
+    </Page.DataContext>
 
+    <!-- 
+    Grids should always stay within 1* in total width/height
+    -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.33*"/>
+            <ColumnDefinition Width="0.33*"/>
+            <ColumnDefinition Width="0.33*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="1" Source="..\Assets\img\headerhjside.png" />
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="LOGBOG" FontSize="72" TextAlignment="Center"/>
+            <StackPanel Grid.Row="1">
+                <ListView ItemsSource="{Binding LogBook}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="NOGET" TextAlignment="Center"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
