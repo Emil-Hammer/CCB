@@ -24,7 +24,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Projekter" Grid.Row="0" FontSize="72" TextAlignment="Center" />
+        <TextBlock Text="Projekter" Grid.Row="0" FontSize="36" TextAlignment="Center" />
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>

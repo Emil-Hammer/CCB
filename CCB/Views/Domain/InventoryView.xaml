@@ -24,7 +24,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" FontSize="72" Text="Inventar" TextAlignment="Center"/>
+        <TextBlock Grid.Row="0" FontSize="36" Text="Inventar" TextAlignment="Center"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
