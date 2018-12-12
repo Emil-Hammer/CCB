@@ -34,12 +34,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="LOGBOG" FontSize="72" TextAlignment="Center"/>
             <StackPanel Grid.Row="1">
-                <ListView ItemsSource="{Binding LogBook}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="NOGET" TextAlignment="Center"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                <ListView ItemsSource="{Binding ItemCollection}">
                 </ListView>
             </StackPanel>
         </Grid>

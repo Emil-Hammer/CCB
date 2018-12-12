@@ -28,7 +28,7 @@
                     SelectedItem ="{Binding SelectedMenuItem, Mode=TwoWay}"
                     ExpandedModeThresholdWidth="3840">
             <NavigationView.MenuItems>
-            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Globe" Content="Frontpage" Tag="OpenFrontView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Globe" Content="Frontpage" Tag="OpenMainPage"/>
             <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Memo" Content="Inventory" Tag="OpenInventoryView"/>
                 <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="People" Content="Project" Tag="OpenProjectView"/>
             <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Staff" Tag="OpenStaffView"/>

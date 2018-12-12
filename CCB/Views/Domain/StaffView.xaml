@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:page="using:CCB.ViewModels.Page"
+    xmlns:app="using:CCB.ViewModels.App"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -35,6 +36,22 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+            <AppBarButton Icon="Stop" Label="Quit" Command="{Binding NavigationCommands[Quit]}">
+                <AppBarButton.DataContext>
+                    <app:FileViewModel/>
+                </AppBarButton.DataContext>
+            </AppBarButton>
+            <AppBarButton Icon="Sync" Label="Load" Command="{Binding NavigationCommands[Load]}">
+                <AppBarButton.DataContext>
+                    <app:FileViewModel/>
+                </AppBarButton.DataContext>
+            </AppBarButton>
+            <AppBarButton Icon="Save" Label="Save" Command="{Binding NavigationCommands[Save]}">
+                <AppBarButton.DataContext>
+                    <app:FileViewModel/>
+                </AppBarButton.DataContext>
+            </AppBarButton>
+            <AppBarSeparator/>
             <AppBarButton Icon="Setting" Label="View State">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -49,105 +66,81 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-
+        
         <!-- Collection view -->
-        <GridView Grid.Row="0" Grid.Column="0" Style="{StaticResource GridViewStyle}"
+            <GridView Grid.Row="0" Grid.Column="0" Style="{StaticResource GridViewStyle}"
                   ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <Image Style="{StaticResource ImageItemStyle}" Source="{Binding ImageSource}" />
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-
-        <!-- Details view -->
-        <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
-
-            <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="{Binding ControlStates[Name].Description}" />
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Name].Enabled}"
-                             Visibility="{Binding ControlStates[Name].VisibilityState}"
-                             Text="{Binding ItemDetails.Name, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="{Binding ControlStates[Title].Description}" />
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Title].Enabled}"
-                             Visibility="{Binding ControlStates[Title].VisibilityState}"
-                             Text="{Binding ItemDetails.Title, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                               Text="{Binding ControlStates[Email].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                             IsEnabled="{Binding ControlStates[Email].Enabled}"
-                             Visibility="{Binding ControlStates[Email].VisibilityState}"
-                             Text="{Binding ItemDetails.Email, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                               Text="{Binding ControlStates[Employed].Description}"/>
-                    <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
-                                IsEnabled="{Binding ControlStates[Employed].Enabled}"
-                                Visibility="{Binding ControlStates[Employed].VisibilityState}"
-                                Date="{Binding ItemDetails.Employed, Mode=TwoWay}"  />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                                       Text="{Binding ControlStates[Phone].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                                     IsEnabled="{Binding ControlStates[Phone].Enabled}"
-                                     Visibility="{Binding ControlStates[Phone].VisibilityState}"
-                                     Text="{Binding ItemDetails.Phone, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                                       Text="{Binding ControlStates[CarsSold].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                                     IsEnabled="False"
-                                     Visibility="{Binding ControlStates[CarsSold].VisibilityState}"
-                                     Text="{Binding ItemDetails.CarsSold}" />
-                </StackPanel>
-            </StackPanel>
-
-            <ComboBox Style="{StaticResource ComboBoxImageSelectStyle}"
-                      IsEnabled="{Binding ControlStates[Image].Enabled}"
-                      Visibility="{Binding ControlStates[Image].VisibilityState}"
-                      ItemsSource="{Binding ItemDetails.ImageCollection}" 
-                      SelectedItem="{Binding ItemDetails.ImageSelected, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
+                <GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Style="{StaticResource StackPanelDetailsImageSelectStyle}">
-                            <Image Style="{StaticResource ImageDetailsSelectStyle}" Source="{Binding Source}" />
+                        <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
+                            <Image Style="{StaticResource ImageItemStyle}" Source="{Binding ImageSource}" />
+                            <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
+                            <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
                         </StackPanel>
                     </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                </GridView.ItemTemplate>
+            </GridView>
 
-        </StackPanel>
+            <!-- Details view -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
-    </Grid>
+                <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Name" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Name].Enabled}"
+                             Visibility="{Binding ControlStates[Name].VisibilityState}"
+                             Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Address" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Address].Enabled}"
+                             Visibility="{Binding ControlStates[Address].VisibilityState}"
+                             Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Position" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Position].Enabled}"
+                             Visibility="{Binding ControlStates[Position].VisibilityState}"
+                             Text="{Binding ItemDetails.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                               Text="Employed"/>
+                        <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
+                                IsEnabled="{Binding ControlStates[Employed].Enabled}"
+                                Visibility="{Binding ControlStates[Employed].VisibilityState}"
+                                Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                                       Text="Telephone"/>
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
+                                     IsEnabled="{Binding ControlStates[Telephone].Enabled}"
+                                     Visibility="{Binding ControlStates[Telephone].VisibilityState}"
+                                     Text="{Binding ItemDetails.Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
 </Page>
