@@ -11,8 +11,8 @@ namespace CCB.ViewModels.Page
     {
         public StaffPageViewModel()
             : base(DomainModel.Catalogs.StaffCatalog,
-                new List<string> { "Name", "CarsSold" },
-                new List<string> { "Image", "Title", "Phone", "Email", "Employed" })
+                new List<string> { },
+                new List<string> { "Telephone", "Address", "Name", "Employed", "Position"})
         {
         }
 

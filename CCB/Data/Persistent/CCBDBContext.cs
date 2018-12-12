@@ -1,5 +1,4 @@
 ﻿using System;
-using CCB.Data.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -26,6 +25,7 @@ namespace CCB.Data.Persistent
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=ccbyg.database.windows.net;Initial Catalog=CCByg;Persist Security Info=True;User ID=ccbyg;Password=Database123");
             }
         }
@@ -34,7 +34,9 @@ namespace CCB.Data.Persistent
         {
             modelBuilder.Entity<Item>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.AmountAllocated).HasColumnName("amountAllocated");
 
@@ -50,7 +52,9 @@ namespace CCB.Data.Persistent
             {
                 entity.ToTable("ItemAllocation");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Amount).HasColumnName("amount");
 
@@ -62,20 +66,22 @@ namespace CCB.Data.Persistent
                     .WithMany(p => p.ItemAllocations)
                     .HasForeignKey(d => d.FkItemId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_it__7B5B524B");
+                    .HasConstraintName("FK__ItemAlloc__fk_it__09A971A2");
 
                 entity.HasOne(d => d.FkProject)
                     .WithMany(p => p.ItemAllocations)
                     .HasForeignKey(d => d.FkProjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_pr__7A672E12");
+                    .HasConstraintName("FK__ItemAlloc__fk_pr__08B54D69");
             });
 
             modelBuilder.Entity<Logbook>(entity =>
             {
                 entity.ToTable("Logbook");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Action)
                     .IsRequired()
@@ -97,7 +103,9 @@ namespace CCB.Data.Persistent
             {
                 entity.ToTable("Project");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Address)
                     .IsRequired()
@@ -127,7 +135,9 @@ namespace CCB.Data.Persistent
             {
                 entity.ToTable("Staff");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Address)
                     .HasColumnName("address")
@@ -150,6 +160,12 @@ namespace CCB.Data.Persistent
                     .HasColumnName("telephone")
                     .HasMaxLength(50);
             });
+
+            modelBuilder.Entity<Domain.Logbook>().Ignore(item => item.Key);
+            modelBuilder.Entity<Domain.Item>().Ignore(item => item.Key);
+            modelBuilder.Entity<Domain.Project>().Ignore(item => item.Key);
+            modelBuilder.Entity<Domain.Staff>().Ignore(item => item.Key);
+
 
             OnModelCreatingPartial(modelBuilder);
         }

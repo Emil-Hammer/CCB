@@ -1,5 +1,4 @@
 ﻿using System;
-using CCB.Data.Base;
 using CCB.Data.Domain;
 using CCB.ViewModels.Base;
 
@@ -10,7 +9,6 @@ namespace CCB.ViewModels.Data
         public FrontDataViewModel(Logbook obj) : base(obj, "Item")
         {
         }
-
         public string Name
         {
             get { return DataObject.Name.TrimEnd(' '); }
@@ -20,7 +18,6 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
         public string Action
         {
             get { return DataObject.Action; }
@@ -30,7 +27,6 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
         public string Type
         {
             get { return DataObject.Type; }
@@ -40,7 +36,6 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get { return DataObject.Key; }
@@ -50,7 +45,6 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
         public override string HeaderText
         {
             get
@@ -71,7 +65,6 @@ namespace CCB.ViewModels.Data
                 }
             }
         }
-
         public override string ContentText
         {
             get { return Name; }

@@ -10,7 +10,7 @@ namespace CCB.Data.Domain
         {
             Name = "(not set)";
             AmountAvailable = 0;
-            AmountAvailable = 0;
+            AmountAllocated = 0;
         }
 
         public override int Key

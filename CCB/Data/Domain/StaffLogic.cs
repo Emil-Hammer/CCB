@@ -8,9 +8,10 @@ namespace CCB.Data.Domain
     {
         public override void SetDefaultValues()
         {
-            Name = "(not set)";
-            Telephone = "(not set)";
-            Position = "(not set)";
+            Name = "(name)";
+            Position = "(position)";
+            Address = "(address)";
+            Telephone = "(phone)";
             EmployedSince = DateTimeOffset.Now.Date;
         }
 

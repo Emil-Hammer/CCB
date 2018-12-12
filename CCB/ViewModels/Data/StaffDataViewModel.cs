@@ -1,5 +1,6 @@
 ﻿using System;
 using CCB.Data.Domain;
+using CCB.ViewModels.App;
 using CCB.ViewModels.Base;
 
 namespace CCB.ViewModels.Data
@@ -20,7 +21,17 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public string Title
+        public string Address
+        {
+            get { return DataObject.Address.TrimEnd(' '); }
+            set
+            {
+                DataObject.Address = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Position
         {
             get { return DataObject.Position.TrimEnd(' '); }
             set
@@ -30,7 +41,7 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public string Phone
+        public string Telephone
         {
             get { return DataObject.Telephone.TrimEnd(' '); }
             set
@@ -83,7 +94,7 @@ namespace CCB.ViewModels.Data
 
         public override string ContentText
         {
-            get { return Phone; }
+            get { return Telephone; }
         }
     }
 }
