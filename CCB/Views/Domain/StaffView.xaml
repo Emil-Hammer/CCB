@@ -80,9 +80,8 @@
 
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                            <Image Style="{StaticResource ImageItemStyle}" Source="{Binding ImageSource}" />
-                            <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
+                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
                             <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
                         </StackPanel>
                     </DataTemplate>
