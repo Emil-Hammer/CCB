@@ -18,23 +18,31 @@
     -->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.33*"/>
             <ColumnDefinition Width="0.33*"/>
             <ColumnDefinition Width="0.33*"/>
         </Grid.ColumnDefinitions>
-        <!--<Image Grid.Row="0" Grid.Column="1" Source="..\Assets\img\headerhjside.png" />-->
+        <Image Grid.Row="0" Grid.Column="1" Source="..\..\Assets\img\headerhjside.png" />
+        <!-- This grid is not dependent on the definitions above.-->
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="0.8*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="LOGBOG" FontSize="72" TextAlignment="Center"/>
+            <!-- Page title -->
+            <TextBlock Grid.Row="0" Text="LOGBOG" FontSize="36" TextAlignment="Center"/>
+            <!-- Logbook. -->
             <StackPanel Grid.Row="1">
-                <ListView ItemsSource="{Binding ItemCollection}">
+                <ListView ItemsSource="{Binding LogBookObj, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="" TextAlignment="Center"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
         </Grid>
