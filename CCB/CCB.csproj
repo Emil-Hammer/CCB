@@ -131,11 +131,6 @@
     <Compile Include="Data\Domain\Logbook.cs" />
     <Compile Include="Data\Domain\Project.cs" />
     <Compile Include="Data\Domain\Staff.cs" />
-    <Compile Include="Data\Persistent\Item.cs" />
-    <Compile Include="Data\Persistent\ItemAllocation.cs" />
-    <Compile Include="Data\Persistent\Logbook.cs" />
-    <Compile Include="Data\Persistent\Project.cs" />
-    <Compile Include="Data\Persistent\Staff.cs" />
     <Compile Include="Models\App\DomainModel.cs" />
     <Compile Include="Models\Base\CatalogAppBase.cs" />
     <Compile Include="Models\Catalog\InventoryCatalog.cs" />
