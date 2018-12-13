@@ -65,14 +65,22 @@
         </CommandBar>
     </Page.BottomAppBar>
 
+    <!-- Grid should always be within one 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Personale"/>
+
         <!-- Collection view -->
-            <GridView Grid.Row="0" Grid.Column="0" Style="{StaticResource GridViewStyle}"
+            <GridView Grid.Row="1" Grid.Column="0" Style="{StaticResource GridViewStyle}"
                   ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
@@ -89,7 +97,8 @@
             </GridView>
 
             <!-- Details view -->
-            <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
+            <!-- The various ControlStates can be found in the PageViewModels -->
+            <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
                 <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
                     <StackPanel Orientation="Horizontal">
