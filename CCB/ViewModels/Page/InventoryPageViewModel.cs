@@ -11,8 +11,8 @@ namespace CCB.ViewModels.Page
     {
         public InventoryPageViewModel()
             : base(DomainModel.Catalogs.ItemCatalog,
-                new List<string> { "Name", "CarsSold" },
-                new List<string> { "Image", "Title", "Phone", "Email", "Employed" })
+                new List<string> { },
+                new List<string> { "Name", "AmountAvailable" })
         {
         }
 

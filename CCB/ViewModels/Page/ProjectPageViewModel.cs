@@ -11,8 +11,8 @@ namespace CCB.ViewModels.Page
     {
         public ProjectPageViewModel()
             : base(DomainModel.Catalogs.ProjectCatalog,
-                new List<string> { "Name", "CarsSold" },
-                new List<string> { "Image", "Title", "Phone", "Email", "Employed" })
+                new List<string> { },
+                new List<string> { "Description", "Address", "Telephone", "Start", "Deadline" })
         {
         }
 
