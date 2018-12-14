@@ -81,7 +81,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Header -->
-        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Personale"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Projekter"/>
 
         <!-- Collection view -->
         <GridView Grid.Row="1" Grid.Column="0" Style="{StaticResource GridViewStyle}"
@@ -107,20 +107,54 @@
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="Name" />
+                               Text="Adresse" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Name].Enabled}"
-                             Visibility="{Binding ControlStates[Name].VisibilityState}"
-                             Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             IsEnabled="{Binding ControlStates[Address].Enabled}"
+                             Visibility="{Binding ControlStates[Address].VisibilityState}"
+                             Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="Address" />
+                               Text="Telefon" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[].Enabled}"
-                             Visibility="{Binding ControlStates[].VisibilityState}"
-                             Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             IsEnabled="{Binding ControlStates[Telephone].Enabled}"
+                             Visibility="{Binding ControlStates[Telephone].VisibilityState}"
+                             Text="{Binding ItemDetails.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                               Text="Start"/>
+                    <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
+                                        IsEnabled="{Binding ControlStates[Start].Enabled}"
+                                        Visibility="{Binding ControlStates[Start].VisibilityState}"
+                                        Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                               Text="Deadline"/>
+                    <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
+                                        IsEnabled="{Binding ControlStates[Deadline].Enabled}"
+                                        Visibility="{Binding ControlStates[Deadline].VisibilityState}"
+                                        Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                               Text="Færdiggjort"/>
+                    <CheckBox Style ="{StaticResource CheckboxStyle}"
+                                        IsEnabled="{Binding ControlStates[Deadline].Enabled}"
+                                        Visibility="{Binding ControlStates[Deadline].VisibilityState}" Command="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDescriptionStyle}"
+                               Text="Beskrivelse"/>
+                    <TextBox Style="{StaticResource TextBoxDescriptionStyle}"
+                                        IsEnabled="{Binding ControlStates[Description].Enabled}"
+                                        Visibility="{Binding ControlStates[Description].VisibilityState}" SelectedText="{Binding ItemDetails.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

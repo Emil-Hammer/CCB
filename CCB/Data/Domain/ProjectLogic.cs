@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Xaml.Controls;
 using CCB.Data.Base;
 using CCB.Models.App;
 
@@ -11,8 +12,8 @@ namespace CCB.Data.Domain
             Description = "(not set)";
             Address = "(not set)";
             Telephone = "(not set)";
-            Start = new DateTime(1990, 1, 1);
-            Deadline = new DateTime(1990, 1, 1);
+            Start = DateTime.Now;
+            Deadline = DateTime.Now.AddDays(10);
             IsFinished = false;
         }
 
