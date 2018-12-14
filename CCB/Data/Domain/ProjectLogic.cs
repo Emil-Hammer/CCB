@@ -12,8 +12,8 @@ namespace CCB.Data.Domain
             Description = "(not set)";
             Address = "(not set)";
             Telephone = "(not set)";
-            Start = DateTime.Now;
-            Deadline = DateTime.Now.AddDays(10);
+            Start = DateTimeOffset.Now;
+            Deadline = DateTimeOffset.Now.AddDays(10);
             IsFinished = false;
         }
 

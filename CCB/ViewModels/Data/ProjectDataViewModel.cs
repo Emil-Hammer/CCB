@@ -40,22 +40,22 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public DateTimeOffset Deadline
+        public DateTimeOffset? Deadline
         {
-            get { return Convert.ToDateTime(DataObject.Deadline); }
+            get { return DataObject.Deadline; }
             set
             {
-                DataObject.Deadline = Convert.ToDateTime(value);
+                DataObject.Deadline = value;
                 OnPropertyChanged();
             }
         }
 
         public DateTimeOffset Start
         {
-            get { return Convert.ToDateTime(DataObject.Start); }
+            get { return DataObject.Start; }
             set
             {
-                DataObject.Start = Convert.ToDateTime(value);
+                DataObject.Start = value;
                 OnPropertyChanged();
             }
         }

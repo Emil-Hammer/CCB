@@ -67,13 +67,13 @@ namespace CCB.Data.Persistent
                     .WithMany(p => p.ItemAllocations)
                     .HasForeignKey(d => d.FkItemId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_it__09A971A2");
+                    .HasConstraintName("FK__ItemAlloc__fk_it__151B244E");
 
                 entity.HasOne(d => d.FkProject)
                     .WithMany(p => p.ItemAllocations)
                     .HasForeignKey(d => d.FkProjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_pr__08B54D69");
+                    .HasConstraintName("FK__ItemAlloc__fk_pr__14270015");
             });
 
             modelBuilder.Entity<Logbook>(entity =>
@@ -111,21 +111,15 @@ namespace CCB.Data.Persistent
                 entity.Property(e => e.Address)
                     .IsRequired()
                     .HasColumnName("address")
-                    .HasMaxLength(100);
+                    .HasMaxLength(200);
 
-                entity.Property(e => e.Deadline)
-                    .HasColumnName("deadline")
-                    .HasColumnType("date");
+                entity.Property(e => e.Deadline).HasColumnName("deadline");
 
-                entity.Property(e => e.Description)
-                    .HasColumnName("description")
-                    .HasMaxLength(250);
+                entity.Property(e => e.Description).HasColumnName("description");
 
                 entity.Property(e => e.IsFinished).HasColumnName("isFinished");
 
-                entity.Property(e => e.Start)
-                    .HasColumnName("start")
-                    .HasColumnType("date");
+                entity.Property(e => e.Start).HasColumnName("start");
 
                 entity.Property(e => e.Telephone)
                     .HasColumnName("telephone")
@@ -142,11 +136,9 @@ namespace CCB.Data.Persistent
 
                 entity.Property(e => e.Address)
                     .HasColumnName("address")
-                    .HasMaxLength(100);
+                    .HasMaxLength(200);
 
-                entity.Property(e => e.EmployedSince)
-                    .HasColumnName("employedSince")
-                    .HasColumnType("date");
+                entity.Property(e => e.EmployedSince).HasColumnName("employedSince");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -166,7 +158,6 @@ namespace CCB.Data.Persistent
             modelBuilder.Entity<Domain.Item>().Ignore(item => item.Key);
             modelBuilder.Entity<Domain.Project>().Ignore(item => item.Key);
             modelBuilder.Entity<Domain.Staff>().Ignore(item => item.Key);
-
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -139,7 +139,7 @@
         <Setter Property="Width" Value="200"/>
         <Setter Property="Height" Value="200" />
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="AcceptsReturn" Value="True"/>
     </Style>
 </ResourceDictionary>

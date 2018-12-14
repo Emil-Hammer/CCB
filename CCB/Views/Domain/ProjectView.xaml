@@ -13,7 +13,6 @@
         <page:ProjectPageViewModel/>
     </Page.DataContext>
 
-    
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -28,39 +27,23 @@
                 <TextBlock Style="{StaticResource TextBlockCommandContentStyle}"
                            Text="{Binding ViewStateDescription}" />
             </CommandBar.Content>
-            <AppBarButton Icon="Add" Label="Create" 
+            <AppBarButton Icon="Add" Label="Opret" 
                           IsEnabled="{Binding ControlStates[CreateControl].Enabled}"
                           Command="{Binding DataCommand[CreateCommand]}"/>
-            <AppBarButton Icon="Edit" Label="Update" 
+            <AppBarButton Icon="Edit" Label="Opdater" 
                           IsEnabled="{Binding ControlStates[UpdateControl].Enabled}"
                           Command="{Binding DataCommand[UpdateCommand]}"/>
-            <AppBarButton Icon="Delete" Label="Delete" 
+            <AppBarButton Icon="Delete" Label="Slet" 
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
-            <AppBarButton Icon="Stop" Label="Quit" Command="{Binding NavigationCommands[Quit]}">
-                <AppBarButton.DataContext>
-                    <app:FileViewModel/>
-                </AppBarButton.DataContext>
-            </AppBarButton>
-            <AppBarButton Icon="Sync" Label="Load" Command="{Binding NavigationCommands[Load]}">
-                <AppBarButton.DataContext>
-                    <app:FileViewModel/>
-                </AppBarButton.DataContext>
-            </AppBarButton>
-            <AppBarButton Icon="Save" Label="Save" Command="{Binding NavigationCommands[Save]}">
-                <AppBarButton.DataContext>
-                    <app:FileViewModel/>
-                </AppBarButton.DataContext>
-            </AppBarButton>
-            <AppBarSeparator/>
-            <AppBarButton Icon="Setting" Label="View State">
+            <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="Create" FontWeight="{Binding MenuFontWeights[CreateMenuItem]}" Command="{Binding StateCommand[CreateStateCommand]}"/>
-                        <MenuFlyoutItem Text="Read" FontWeight="{Binding MenuFontWeights[ReadMenuItem]}" Command="{Binding StateCommand[ReadStateCommand]}"/>
-                        <MenuFlyoutItem Text="Update" FontWeight="{Binding MenuFontWeights[UpdateMenuItem]}" Command="{Binding StateCommand[UpdateStateCommand]}"/>
-                        <MenuFlyoutItem Text="Delete" FontWeight="{Binding MenuFontWeights[DeleteMenuItem]}" Command="{Binding StateCommand[DeleteStateCommand]}"/>
+                        <MenuFlyoutItem Text="Opret" FontWeight="{Binding MenuFontWeights[CreateMenuItem]}" Command="{Binding StateCommand[CreateStateCommand]}"/>
+                        <MenuFlyoutItem Text="Vis" FontWeight="{Binding MenuFontWeights[ReadMenuItem]}" Command="{Binding StateCommand[ReadStateCommand]}"/>
+                        <MenuFlyoutItem Text="Opdater" FontWeight="{Binding MenuFontWeights[UpdateMenuItem]}" Command="{Binding StateCommand[UpdateStateCommand]}"/>
+                        <MenuFlyoutItem Text="Slet" FontWeight="{Binding MenuFontWeights[DeleteMenuItem]}" Command="{Binding StateCommand[DeleteStateCommand]}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
@@ -146,7 +129,7 @@
                                Text="Færdiggjort"/>
                     <CheckBox Style ="{StaticResource CheckboxStyle}"
                                         IsEnabled="{Binding ControlStates[Deadline].Enabled}"
-                                        Visibility="{Binding ControlStates[Deadline].VisibilityState}" Command="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                        Visibility="{Binding ControlStates[Deadline].VisibilityState}"  IsChecked="{Binding ItemDetails.IsFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
@@ -154,7 +137,7 @@
                                Text="Beskrivelse"/>
                     <TextBox Style="{StaticResource TextBoxDescriptionStyle}"
                                         IsEnabled="{Binding ControlStates[Description].Enabled}"
-                                        Visibility="{Binding ControlStates[Description].VisibilityState}" SelectedText="{Binding ItemDetails.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        Visibility="{Binding ControlStates[Description].VisibilityState}" Text="{Binding ItemDetails.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
