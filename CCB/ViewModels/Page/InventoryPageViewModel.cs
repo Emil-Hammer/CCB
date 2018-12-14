@@ -12,7 +12,7 @@ namespace CCB.ViewModels.Page
         public InventoryPageViewModel()
             : base(DomainModel.Catalogs.ItemCatalog,
                 new List<string> { },
-                new List<string> { "Name", "AmountAvailable" })
+                new List<string> { "Name", "AmountAvailable", "AmountAllocated", "Amount" })
         {
         }
 

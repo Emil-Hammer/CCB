@@ -32,6 +32,15 @@ namespace CCB.ViewModels.Data
 
         public int AmountAvailable
         {
+            get
+            {
+                int av = Amount - AmountAllocated;
+                return av;
+            }
+        }
+
+        public int Amount
+        {
             get { return DataObject.AmountAvailable; }
             set
             {
@@ -73,7 +82,7 @@ namespace CCB.ViewModels.Data
 
         public override string ContentText
         {
-            get { return Name; }
+            get { return "Tilgængeligt: " + AmountAvailable.ToString(); }
         }
     }
 }

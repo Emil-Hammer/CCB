@@ -18,6 +18,12 @@
         <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicWindowBrush}"/>
     </Style>
 
+    <!--Checkbox Styles-->
+    <Style x:Key="CheckboxStyle" TargetType="CheckBox">
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
     <!--GridView Styles-->
     <Style x:Key="GridViewStyle" TargetType="GridView">
         <Setter Property="Background" Value="White"/>
@@ -112,6 +118,13 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
+    <Style x:Key="TextBlockDescriptionStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="5,0,5,0"/>
+    </Style>
+
     <!--TextBox Styles-->
     <Style x:Key="TextBoxDetailsStyle" TargetType="TextBox">
         <Setter Property="FontSize" Value="16"/>
@@ -120,4 +133,13 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
+    <Style x:Key="TextBoxDescriptionStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="200" />
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+    </Style>
 </ResourceDictionary>

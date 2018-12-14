@@ -71,7 +71,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Header -->
-        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Personale"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Lager"/>
 
         <!-- Collection view -->
         <GridView Grid.Row="1" Grid.Column="0" Style="{StaticResource GridViewStyle}"
@@ -106,11 +106,27 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="Address" />
+                               Text="Tilgængeligt" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[].Enabled}"
-                             Visibility="{Binding ControlStates[].VisibilityState}"
-                             Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             IsEnabled="{Binding ControlStates[Amount].Enabled}"
+                             Visibility="{Binding ControlStates[Amount].VisibilityState}"
+                             Text="{Binding ItemDetails.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Reserveret" />
+                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"
+                             Visibility="{Binding ControlStates[AmountAllocated].VisibilityState}"
+                             Text="{Binding ItemDetails.AmountAllocated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="I alt" />
+                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[AmountAvailable].Enabled}"
+                             Visibility="{Binding ControlStates[AmountAvailable].VisibilityState}"
+                             Text="{Binding ItemDetails.AmountAvailable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>

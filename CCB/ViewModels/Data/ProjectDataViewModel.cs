@@ -40,22 +40,22 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public DateTime? Deadline
+        public DateTimeOffset Deadline
         {
-            get { return DataObject.Deadline; }
+            get { return Convert.ToDateTime(DataObject.Deadline); }
             set
             {
-                DataObject.Deadline = value;
+                DataObject.Deadline = Convert.ToDateTime(value);
                 OnPropertyChanged();
             }
         }
 
-        public DateTime? StartDateTime
+        public DateTimeOffset Start
         {
-            get { return DataObject.Start; }
+            get { return Convert.ToDateTime(DataObject.Start); }
             set
             {
-                DataObject.Start = value;
+                DataObject.Start = Convert.ToDateTime(value);
                 OnPropertyChanged();
             }
         }
@@ -82,6 +82,11 @@ namespace CCB.ViewModels.Data
 
 
         public override string ContentText
+        {
+            get { return Convert.ToString(Start.DateTime.ToShortDateString()); ; }
+        }
+
+        public override string HeaderText
         {
             get { return Address; }
         }
