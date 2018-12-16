@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CCB.Data.Domain;
 using CCB.Models.App;
 using CCB.ViewModels.Base;
@@ -19,6 +20,14 @@ namespace CCB.ViewModels.Page
         public override IDataWrapper<Staff> CreateDataViewModel(Staff obj)
         {
             return new StaffDataViewModel(obj);
+        }
+        public IOrderedEnumerable<IDataWrapper<Staff>> SortedItemCollection
+        {
+            get
+            {
+                OnPropertyChanged();
+                return ItemCollection.OrderBy(m => m.DataObject.Name);
+            }
         }
     }
 }

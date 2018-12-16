@@ -1,13 +1,7 @@
-﻿using System.Collections.Generic;
-using Windows.UI.Xaml.Controls;
-using AddOns.Images.Implementation;
-using AddOns.Images.Interfaces;
+﻿using Windows.UI.Xaml.Controls;
 using CCB.Models.App;
 using CCB.ViewModels.App;
-using CCB.Views.App;
 using CCB.Views.Domain;
-using Commands.Implementation;
-using Extensions.AddOns.Implementation;
 
 namespace CCB.Configuration.App
 {

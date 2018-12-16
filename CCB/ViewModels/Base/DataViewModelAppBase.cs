@@ -1,8 +1,4 @@
-﻿using AddOns.Images.Implementation;
-using AddOns.Images.Interfaces;
-using CCB.ViewModels.App;
-using Extensions.AddOns.Implementation;
-using Extensions.ViewModel.Implementation;
+﻿using Extensions.ViewModel.Implementation;
 
 namespace CCB.ViewModels.Base
 {

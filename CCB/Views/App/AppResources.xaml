@@ -25,7 +25,7 @@
     </Style>
 
     <!--GridView Styles-->
-    <Style x:Key="GridViewStyle" TargetType="GridView">
+    <Style x:Key="ListViewStyle" TargetType="ListView">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Margin" Value="10,10,10,10"/>
     </Style>
@@ -56,12 +56,8 @@
 
     <!--StackPanel Styles-->
     <Style x:Key="StackPanelItemTemplateStyle" TargetType="StackPanel">
-        <Setter Property="Orientation" Value="Vertical"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Background" Value="Snow"/>
-        <Setter Property="Spacing" Value="5"/>
-        <Setter Property="Margin" Value="10,5,10,5"/>
-        <Setter Property="Width" Value="100"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="StackPanelDetailsOuterStyle" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
@@ -94,14 +90,21 @@
     <Style x:Key="TextBlockItemHeaderStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Foreground" Value="CornflowerBlue"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width" Value="Auto"/>
     </Style>
     <Style x:Key="TextBlockItemContentStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Foreground" Value="Gray"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width" Value="Auto"/>
+    </Style>
+    <Style x:Key="TextBlockItemSeparatorStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Margin" Value="15,0,15,0"></Setter>
     </Style>
     <Style x:Key="TextBlockDetailsHeaderStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>

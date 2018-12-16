@@ -1,6 +1,5 @@
 ﻿using System;
 using CCB.Data.Domain;
-using CCB.ViewModels.App;
 using CCB.ViewModels.Base;
 
 namespace CCB.ViewModels.Data
