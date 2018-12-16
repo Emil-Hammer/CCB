@@ -25,10 +25,7 @@ namespace CCB.ViewModels.Base
             };
         }
 
-        public Dictionary<string, FontWeight> MenuFontWeights
-        {
-            get { return _menuFontWeights; }
-        }
+        public Dictionary<string, FontWeight> MenuFontWeights => _menuFontWeights;
 
         private void UpdateFontWeights()
         {

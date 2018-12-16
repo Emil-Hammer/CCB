@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Windows.Input;
+using Windows.UI.Popups;
 using CCB.Data.Domain;
 using CCB.ViewModels.Base;
+using Commands.Implementation;
 
 namespace CCB.ViewModels.Data
 {
@@ -10,9 +13,76 @@ namespace CCB.ViewModels.Data
         {
         }
 
+        // Buttons for changing the amount
+        public ICommand AmountUpCommand => new RelayCommand((AmountUpCommandMethod));
+        public ICommand AmountDownCommand => new RelayCommand((AmountDownCommandMethod));
+        public ICommand AllocatedUpCommand => new RelayCommand((AllocatedUpCommandMethod));
+        public ICommand AllocatedDownCommand => new RelayCommand((AllocatedDownCommandMethod));
+
+        public void AmountUpCommandMethod()
+        {
+            Amount++;
+            OnPropertyChanged("AmountAvailable");
+        }
+
+        public async void AllocatedUpCommandMethod()
+        {
+            if (AmountAllocated < Amount)
+            {
+                AmountAllocated++;
+                OnPropertyChanged("AmountAvailable");
+            }
+            else
+            {
+                var dialog = new MessageDialog("Reserveret kan ikke være højere end antal. Sæt antal op.");
+                await dialog.ShowAsync();
+            }
+        }
+
+        public async void AllocatedDownCommandMethod()
+        {
+            if (AmountAllocated > 0)
+            {
+                AmountAllocated--;
+                OnPropertyChanged();
+                OnPropertyChanged("AmountAvailable");
+
+            }
+            else
+            {
+                var dialog = new MessageDialog("Reserveret kan ikke være lavere end 0.");
+                await dialog.ShowAsync();
+            }
+        }
+
+
+        public async void AmountDownCommandMethod()
+        {
+            if (Amount > 0)
+            {
+                if ((Amount > AmountAllocated))
+                {
+                    Amount--;
+                    OnPropertyChanged();
+                    OnPropertyChanged("AmountAvailable");
+                }
+                else
+                {
+                    var dialog = new MessageDialog("Antal skal være højere end reserveret. Sæt reserveret ned!");
+                    await dialog.ShowAsync();
+                }
+            }
+            else
+            {
+                var dialog = new MessageDialog("Antal kan ikke være lavere end 0.");
+                await dialog.ShowAsync();
+            }
+        }
+        //
+
         public string Name
         {
-            get { return DataObject.Name.TrimEnd(' '); }
+            get => DataObject.Name.TrimEnd(' ');
             set
             {
                 DataObject.Name = value;
@@ -22,7 +92,7 @@ namespace CCB.ViewModels.Data
 
         public int AmountAllocated
         {
-            get { return DataObject.AmountAllocated; }
+            get => DataObject.AmountAllocated;
             set
             {
                 DataObject.AmountAllocated = value;
@@ -30,18 +100,11 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public int AmountAvailable
-        {
-            get
-            {
-                int av = Amount - AmountAllocated;
-                return av;
-            }
-        }
+        public int AmountAvailable => Amount - AmountAllocated;
 
         public int Amount
         {
-            get { return DataObject.AmountAvailable; }
+            get => DataObject.AmountAvailable;
             set
             {
                 DataObject.AmountAvailable = value;
@@ -51,7 +114,7 @@ namespace CCB.ViewModels.Data
 
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
-            get { return DataObject.Key; }
+            get => DataObject.Key;
             set
             {
                 DataObject.Key = value;
@@ -59,30 +122,8 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public override string HeaderText
-        {
-            get
-            {
-                if (Name == null || !Name.Contains(" "))
-                {
-                    return Name;
-                }
-                else
-                {
-                    int index = Name.IndexOf(" ", StringComparison.Ordinal);
-                    var shortName = Name.Substring(0, index + 1);
-                    if (Name.Length > index + 1)
-                    {
-                        shortName += Name.Substring(index + 1, 1) + ".";
-                    }
-                    return shortName;
-                }
-            }
-        }
+        public override string HeaderText => Name;
 
-        public override string ContentText
-        {
-            get { return "Tilgængeligt: " + AmountAvailable.ToString(); }
-        }
+        public override string ContentText => "Tilgængeligt: " + AmountAvailable.ToString();
     }
 }

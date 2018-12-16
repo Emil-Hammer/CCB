@@ -100,25 +100,31 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="Tilgængeligt" />
+                               Text="Antal" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Amount].Enabled}"
+                             IsEnabled="False"
                              Visibility="{Binding ControlStates[Amount].VisibilityState}"
                              Text="{Binding ItemDetails.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button Content="˄" Command="{Binding ItemDetails.AmountUpCommand}" MinWidth="30"/>
+                    <Button Content="˅" Command="{Binding ItemDetails.AmountDownCommand}" MinWidth="30"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Reserveret" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"
+                             IsEnabled="False"
                              Visibility="{Binding ControlStates[AmountAllocated].VisibilityState}"
                              Text="{Binding ItemDetails.AmountAllocated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button Content="˄" Command="{Binding ItemDetails.AllocatedUpCommand}" MinWidth="30"/>
+                    <Button Content="˅" Command="{Binding ItemDetails.AllocatedDownCommand}" MinWidth="30"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="I alt" />
+                               Text="Tilgængeligt" />
                     <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[AmountAvailable].Enabled}"
+                             IsEnabled="False"
                              Visibility="{Binding ControlStates[AmountAvailable].VisibilityState}"
                              Text="{Binding ItemDetails.AmountAvailable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>

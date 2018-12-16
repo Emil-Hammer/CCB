@@ -12,7 +12,7 @@ namespace CCB.ViewModels.Data
 
         public string Address
         {
-            get { return DataObject.Address.TrimEnd(' '); }
+            get => DataObject.Address.TrimEnd(' ');
             set
             {
                 DataObject.Address = value;
@@ -22,7 +22,7 @@ namespace CCB.ViewModels.Data
 
         public string Description
         {
-            get { return DataObject.Description.TrimEnd(' '); }
+            get => DataObject.Description.TrimEnd(' ');
             set
             {
                 DataObject.Description = value;
@@ -32,7 +32,7 @@ namespace CCB.ViewModels.Data
 
         public string Phone
         {
-            get { return DataObject.Telephone.TrimEnd(' '); }
+            get => DataObject.Telephone.TrimEnd(' ');
             set
             {
                 DataObject.Telephone = value;
@@ -42,7 +42,7 @@ namespace CCB.ViewModels.Data
 
         public DateTimeOffset? Deadline
         {
-            get { return DataObject.Deadline; }
+            get => DataObject.Deadline;
             set
             {
                 DataObject.Deadline = value;
@@ -52,7 +52,7 @@ namespace CCB.ViewModels.Data
 
         public DateTimeOffset Start
         {
-            get { return DataObject.Start; }
+            get => DataObject.Start;
             set
             {
                 DataObject.Start = value;
@@ -62,7 +62,7 @@ namespace CCB.ViewModels.Data
 
         public bool IsFinished
         {
-            get { return DataObject.IsFinished; }
+            get => DataObject.IsFinished;
             set
             {
                 DataObject.IsFinished = value;
@@ -72,7 +72,7 @@ namespace CCB.ViewModels.Data
 
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
-            get { return DataObject.Key; }
+            get => DataObject.Key;
             set
             {
                 DataObject.Key = value;
@@ -81,14 +81,8 @@ namespace CCB.ViewModels.Data
         }
 
 
-        public override string ContentText
-        {
-            get { return Convert.ToString(Start.DateTime.ToShortDateString()); ; }
-        }
+        public override string ContentText => Convert.ToString(Start.DateTime.ToShortDateString());
 
-        public override string HeaderText
-        {
-            get { return Address; }
-        }
+        public override string HeaderText => Address;
     }
 }

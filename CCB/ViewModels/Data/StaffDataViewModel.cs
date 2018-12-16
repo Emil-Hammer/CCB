@@ -13,7 +13,7 @@ namespace CCB.ViewModels.Data
 
         public string Name
         {
-            get { return DataObject.Name.TrimEnd(' '); }
+            get => DataObject.Name.TrimEnd(' ');
             set
             {
                 DataObject.Name = value;
@@ -23,7 +23,7 @@ namespace CCB.ViewModels.Data
 
         public string Address
         {
-            get { return DataObject.Address.TrimEnd(' '); }
+            get => DataObject.Address.TrimEnd(' ');
             set
             {
                 DataObject.Address = value;
@@ -33,7 +33,7 @@ namespace CCB.ViewModels.Data
 
         public string Position
         {
-            get { return DataObject.Position.TrimEnd(' '); }
+            get => DataObject.Position.TrimEnd(' ');
             set
             {
                 DataObject.Position = value;
@@ -43,7 +43,7 @@ namespace CCB.ViewModels.Data
 
         public string Telephone
         {
-            get { return DataObject.Telephone.TrimEnd(' '); }
+            get => DataObject.Telephone.TrimEnd(' ');
             set
             {
                 DataObject.Telephone = value;
@@ -53,7 +53,7 @@ namespace CCB.ViewModels.Data
 
         public DateTimeOffset Employed
         {
-            get { return DataObject.EmployedSince; }
+            get => DataObject.EmployedSince;
             set
             {
                 DataObject.EmployedSince = value.Date;
@@ -63,7 +63,7 @@ namespace CCB.ViewModels.Data
 
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
-            get { return DataObject.Key; }
+            get => DataObject.Key;
             set
             {
                 DataObject.Key = value;
@@ -92,9 +92,6 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public override string ContentText
-        {
-            get { return Telephone; }
-        }
+        public override string ContentText => Telephone;
     }
 }
