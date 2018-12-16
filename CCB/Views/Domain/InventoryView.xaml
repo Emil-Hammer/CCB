@@ -69,7 +69,7 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection}"
+                  ItemsSource="{Binding SortedItemCollection, Mode=TwoWay}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
