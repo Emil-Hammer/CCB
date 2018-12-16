@@ -11,7 +11,7 @@ namespace CCB.ViewModels.Data
         }
         public string Name
         {
-            get { return DataObject.Name.TrimEnd(' '); }
+            get => DataObject.Name.TrimEnd(' ');
             set
             {
                 DataObject.Name = value;
@@ -20,7 +20,7 @@ namespace CCB.ViewModels.Data
         }
         public string Action
         {
-            get { return DataObject.Action; }
+            get => DataObject.Action;
             set
             {
                 DataObject.Action = value;
@@ -29,7 +29,7 @@ namespace CCB.ViewModels.Data
         }
         public string Type
         {
-            get { return DataObject.Type; }
+            get => DataObject.Type;
             set
             {
                 DataObject.Type = value;
@@ -38,7 +38,7 @@ namespace CCB.ViewModels.Data
         }
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
-            get { return DataObject.Key; }
+            get => DataObject.Key;
             set
             {
                 DataObject.Key = value;
@@ -65,9 +65,6 @@ namespace CCB.ViewModels.Data
                 }
             }
         }
-        public override string ContentText
-        {
-            get { return Name; }
-        }
+        public override string ContentText => Name;
     }
 }

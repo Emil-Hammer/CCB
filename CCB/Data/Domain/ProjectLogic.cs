@@ -9,9 +9,9 @@ namespace CCB.Data.Domain
     {
         public override void SetDefaultValues()
         {
-            Description = "(not set)";
-            Address = "(not set)";
-            Telephone = "(not set)";
+            Description = "";
+            Address = "";
+            Telephone = "";
             Start = DateTimeOffset.Now;
             Deadline = DateTimeOffset.Now.AddDays(10);
             IsFinished = false;
@@ -19,8 +19,8 @@ namespace CCB.Data.Domain
 
         public override int Key
         {
-            get { return Id; }
-            set { Id = value; }
+            get => Id;
+            set => Id = value;
         }
     }
 }

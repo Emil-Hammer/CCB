@@ -8,17 +8,17 @@ namespace CCB.Data.Domain
     {
         public override void SetDefaultValues()
         {
-            Name = "(name)";
-            Position = "(position)";
-            Address = "(address)";
-            Telephone = "(phone)";
+            Name = "";
+            Position = "";
+            Address = "";
+            Telephone = "";
             EmployedSince = DateTimeOffset.Now.Date;
         }
 
         public override int Key
         {
-            get { return Id; }
-            set { Id = value; }
+            get => Id;
+            set => Id = value;
         }
     }
 }

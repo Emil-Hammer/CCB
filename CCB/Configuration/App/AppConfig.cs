@@ -13,9 +13,9 @@ namespace CCB.Configuration.App
 {
     public class AppConfig
     {
-        public static void Setup(Page mainPage, Frame appFrame)
+        public static async void Setup(Page mainPage, Frame appFrame)
         {
-            DomainModel.Instance.LoadAsync(); // Loading data from database before opening program
+            await DomainModel.Instance.LoadAsync(); // Loading data from database before opening program
 
             appFrame.Navigate(typeof(FrontView)); // Configuring the first view to see when you open the program
             ((AppViewModel)mainPage.DataContext).SetAppFrame(appFrame); 

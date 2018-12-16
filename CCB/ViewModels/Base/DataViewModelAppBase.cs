@@ -14,14 +14,8 @@ namespace CCB.ViewModels.Base
         {
         }
 
-        public virtual string HeaderText
-        {
-            get { return "Override HeaderText..."; }
-        }
+        public virtual string HeaderText => "Override HeaderText...";
 
-        public virtual string ContentText
-        {
-            get { return "Override ContentText..."; }
-        }
+        public virtual string ContentText => "Override ContentText...";
     }
 }
