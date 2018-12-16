@@ -1,7 +1,5 @@
-﻿using System;
-using CCB.Data.Domain;
+﻿using CCB.Data.Domain;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CCB.Data.Persistent
 {

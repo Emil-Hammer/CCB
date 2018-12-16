@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Input;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using CCB.Data.Domain;
+using CCB.Models.App;
 using CCB.ViewModels.Base;
 using Commands.Implementation;
 

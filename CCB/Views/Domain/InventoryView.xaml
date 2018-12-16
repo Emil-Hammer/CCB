@@ -68,21 +68,22 @@
         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Lager"/>
 
         <!-- Collection view -->
-        <GridView Grid.Row="1" Grid.Column="0" Style="{StaticResource GridViewStyle}"
-                  ItemsSource="{Binding ItemCollection}"
+        <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
+                  ItemsSource="{Binding SortedItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
-            <GridView.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
                         <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
+                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
                         <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
                     </StackPanel>
                 </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <!-- Details view -->
         <!-- The various ControlStates can be found in the PageViewModels -->

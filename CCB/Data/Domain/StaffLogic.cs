@@ -1,6 +1,5 @@
 ﻿using System;
 using CCB.Data.Base;
-using CCB.Models.App;
 
 namespace CCB.Data.Domain
 {

@@ -1,5 +1,4 @@
-﻿using CCB.Views.App;
-using CCB.Views.Domain;
+﻿using CCB.Views.Domain;
 using Commands.Implementation;
 using Extensions.ViewModel.Implementation;
 
