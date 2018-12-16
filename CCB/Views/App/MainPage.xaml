@@ -26,12 +26,13 @@
                     OpenPaneLength="150"
                     CompactModeThresholdWidth="1280"
                     SelectedItem ="{Binding SelectedMenuItem, Mode=TwoWay}"
-                    ExpandedModeThresholdWidth="3840">
+                    ExpandedModeThresholdWidth="3840"
+                    IsSettingsVisible="False">
             <NavigationView.MenuItems>
-            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Globe" Content="Frontpage" Tag="OpenFrontView"/>
-            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Memo" Content="Inventory" Tag="OpenInventoryView"/>
-                <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="People" Content="Project" Tag="OpenProjectView"/>
-            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Staff" Tag="OpenStaffView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Globe" Content="Forside" Tag="OpenFrontView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Memo" Content="Lager" Tag="OpenInventoryView"/>
+                <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="People" Content="Projekt" Tag="OpenProjectView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Ansatte" Tag="OpenStaffView"/>
         </NavigationView.MenuItems>
 
             <Frame x:Name="AppFrame">

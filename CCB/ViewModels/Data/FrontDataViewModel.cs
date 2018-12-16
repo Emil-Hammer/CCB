@@ -4,12 +4,11 @@ using CCB.ViewModels.Base;
 
 namespace CCB.ViewModels.Data
 {
-    public class StaffDataViewModel : DataViewModelAppBase<Staff>
+    public class FrontDataViewModel : DataViewModelAppBase<Logbook>
     {
-        public StaffDataViewModel(Staff obj) : base(obj, "Staff")
+        public FrontDataViewModel(Logbook obj) : base(obj, "Item")
         {
         }
-
         public string Name
         {
             get => DataObject.Name.TrimEnd(' ');
@@ -19,47 +18,24 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
-        public string Address
+        public string Action
         {
-            get => DataObject.Address.TrimEnd(' ');
+            get => DataObject.Action;
             set
             {
-                DataObject.Address = value;
+                DataObject.Action = value;
                 OnPropertyChanged();
             }
         }
-
-        public string Position
+        public string Type
         {
-            get => DataObject.Position.TrimEnd(' ');
+            get => DataObject.Type;
             set
             {
-                DataObject.Position = value;
+                DataObject.Type = value;
                 OnPropertyChanged();
             }
         }
-
-        public string Telephone
-        {
-            get => DataObject.Telephone.TrimEnd(' ');
-            set
-            {
-                DataObject.Telephone = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public DateTimeOffset Employed
-        {
-            get => DataObject.EmployedSince;
-            set
-            {
-                DataObject.EmployedSince = value.Date;
-                OnPropertyChanged();
-            }
-        }
-
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get => DataObject.Key;
@@ -69,7 +45,6 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
-
         public override string HeaderText
         {
             get
@@ -90,7 +65,6 @@ namespace CCB.ViewModels.Data
                 }
             }
         }
-
-        public override string ContentText => Telephone;
+        public override string ContentText => Name;
     }
 }

@@ -19,10 +19,7 @@ namespace CCB.ViewModels.App
             AddCommands();
         }
 
-        public bool IsWorking
-        {
-            get { return _isLoading || _isSaving; }
-        }
+        public bool IsWorking => _isLoading || _isSaving;
 
 
         public string LoadingText

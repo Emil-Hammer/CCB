@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:page="using:CCB.ViewModels.Page"
+    xmlns:app="using:CCB.ViewModels.App"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -25,129 +26,114 @@
                 <TextBlock Style="{StaticResource TextBlockCommandContentStyle}"
                            Text="{Binding ViewStateDescription}" />
             </CommandBar.Content>
-            <AppBarButton Icon="Add" Label="Create" 
+            <AppBarButton Icon="Add" Label="Opret" 
                           IsEnabled="{Binding ControlStates[CreateControl].Enabled}"
                           Command="{Binding DataCommand[CreateCommand]}"/>
-            <AppBarButton Icon="Edit" Label="Update" 
+            <AppBarButton Icon="Edit" Label="Opdater" 
                           IsEnabled="{Binding ControlStates[UpdateControl].Enabled}"
                           Command="{Binding DataCommand[UpdateCommand]}"/>
-            <AppBarButton Icon="Delete" Label="Delete" 
+            <AppBarButton Icon="Delete" Label="Slet" 
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
-            <AppBarButton Icon="Setting" Label="View State">
+            <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="Create" FontWeight="{Binding MenuFontWeights[CreateMenuItem]}" Command="{Binding StateCommand[CreateStateCommand]}"/>
-                        <MenuFlyoutItem Text="Read" FontWeight="{Binding MenuFontWeights[ReadMenuItem]}" Command="{Binding StateCommand[ReadStateCommand]}"/>
-                        <MenuFlyoutItem Text="Update" FontWeight="{Binding MenuFontWeights[UpdateMenuItem]}" Command="{Binding StateCommand[UpdateStateCommand]}"/>
-                        <MenuFlyoutItem Text="Delete" FontWeight="{Binding MenuFontWeights[DeleteMenuItem]}" Command="{Binding StateCommand[DeleteStateCommand]}"/>
+                        <MenuFlyoutItem Text="Opret" FontWeight="{Binding MenuFontWeights[CreateMenuItem]}" Command="{Binding StateCommand[CreateStateCommand]}"/>
+                        <MenuFlyoutItem Text="Vis" FontWeight="{Binding MenuFontWeights[ReadMenuItem]}" Command="{Binding StateCommand[ReadStateCommand]}"/>
+                        <MenuFlyoutItem Text="Opdater" FontWeight="{Binding MenuFontWeights[UpdateMenuItem]}" Command="{Binding StateCommand[UpdateStateCommand]}"/>
+                        <MenuFlyoutItem Text="Slet" FontWeight="{Binding MenuFontWeights[DeleteMenuItem]}" Command="{Binding StateCommand[DeleteStateCommand]}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
 
+    <!-- Grid should always be within one 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+        
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="48" TextAlignment="Center" Text="Personale"/>
 
         <!-- Collection view -->
-        <GridView Grid.Row="0" Grid.Column="0" Style="{StaticResource GridViewStyle}"
-                  ItemsSource="{Binding ItemCollection}"
+        <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
+                  ItemsSource="{Binding SortedItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <Image Style="{StaticResource ImageItemStyle}" Source="{Binding ImageSource}" />
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-
-        <!-- Details view -->
-        <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
-
-            <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="{Binding ControlStates[Name].Description}" />
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Name].Enabled}"
-                             Visibility="{Binding ControlStates[Name].VisibilityState}"
-                             Text="{Binding ItemDetails.Name, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
-                               Text="{Binding ControlStates[Title].Description}" />
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}"
-                             IsEnabled="{Binding ControlStates[Title].Enabled}"
-                             Visibility="{Binding ControlStates[Title].VisibilityState}"
-                             Text="{Binding ItemDetails.Title, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                               Text="{Binding ControlStates[Email].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                             IsEnabled="{Binding ControlStates[Email].Enabled}"
-                             Visibility="{Binding ControlStates[Email].VisibilityState}"
-                             Text="{Binding ItemDetails.Email, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                               Text="{Binding ControlStates[Employed].Description}"/>
-                    <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
-                                IsEnabled="{Binding ControlStates[Employed].Enabled}"
-                                Visibility="{Binding ControlStates[Employed].VisibilityState}"
-                                Date="{Binding ItemDetails.Employed, Mode=TwoWay}"  />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                                       Text="{Binding ControlStates[Phone].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                                     IsEnabled="{Binding ControlStates[Phone].Enabled}"
-                                     Visibility="{Binding ControlStates[Phone].VisibilityState}"
-                                     Text="{Binding ItemDetails.Phone, Mode=TwoWay}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
-                                       Text="{Binding ControlStates[CarsSold].Description}"/>
-                    <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
-                                     IsEnabled="False"
-                                     Visibility="{Binding ControlStates[CarsSold].VisibilityState}"
-                                     Text="{Binding ItemDetails.CarsSold}" />
-                </StackPanel>
-            </StackPanel>
-
-            <ComboBox Style="{StaticResource ComboBoxImageSelectStyle}"
-                      IsEnabled="{Binding ControlStates[Image].Enabled}"
-                      Visibility="{Binding ControlStates[Image].VisibilityState}"
-                      ItemsSource="{Binding ItemDetails.ImageCollection}" 
-                      SelectedItem="{Binding ItemDetails.ImageSelected, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
+            <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Style="{StaticResource StackPanelDetailsImageSelectStyle}">
-                            <Image Style="{StaticResource ImageDetailsSelectStyle}" Source="{Binding Source}" />
+                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
+                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
                         </StackPanel>
                     </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                </ListView.ItemTemplate>
+            </ListView>
 
-        </StackPanel>
+            <!-- Details view -->
+            <!-- The various ControlStates can be found in the PageViewModels -->
+            <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
-    </Grid>
+                <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Navn" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Name].Enabled}"
+                             Visibility="{Binding ControlStates[Name].VisibilityState}"
+                             Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Adresse" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Address].Enabled}"
+                             Visibility="{Binding ControlStates[Address].VisibilityState}"
+                             Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
+                               Text="Titel" />
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}"
+                             IsEnabled="{Binding ControlStates[Position].Enabled}"
+                             Visibility="{Binding ControlStates[Position].VisibilityState}"
+                             Text="{Binding ItemDetails.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                               Text="Ansat"/>
+                        <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
+                                IsEnabled="{Binding ControlStates[Employed].Enabled}"
+                                Visibility="{Binding ControlStates[Employed].VisibilityState}"
+                                Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
+                                       Text="Telefon"/>
+                        <TextBox Style="{StaticResource TextBoxDetailsStyle}" 
+                                     IsEnabled="{Binding ControlStates[Telephone].Enabled}"
+                                     Visibility="{Binding ControlStates[Telephone].VisibilityState}"
+                                     Text="{Binding ItemDetails.Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
 </Page>

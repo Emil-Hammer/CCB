@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CCB.Data.Domain;
 using CCB.Models.App;
 using CCB.ViewModels.Base;
@@ -10,15 +11,23 @@ namespace CCB.ViewModels.Page
     public class StaffPageViewModel : PageViewModelAppBase<Staff>
     {
         public StaffPageViewModel()
-            : base(DomainModel.Catalogs.Employees,
-                new List<string> { "Name", "CarsSold" },
-                new List<string> { "Image", "Title", "Phone", "Email", "Employed" })
+            : base(DomainModel.Catalogs.StaffCatalog,
+                new List<string> { },
+                new List<string> { "Telephone", "Address", "Name", "Employed", "Position"})
         {
         }
 
         public override IDataWrapper<Staff> CreateDataViewModel(Staff obj)
         {
             return new StaffDataViewModel(obj);
+        }
+        public IOrderedEnumerable<IDataWrapper<Staff>> SortedItemCollection
+        {
+            get
+            {
+                OnPropertyChanged();
+                return ItemCollection.OrderBy(m => m.DataObject.Name);
+            }
         }
     }
 }

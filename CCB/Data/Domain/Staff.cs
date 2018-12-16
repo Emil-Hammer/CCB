@@ -9,6 +9,6 @@ namespace CCB.Data.Domain
         public string Address { get; set; }
         public string Telephone { get; set; }
         public string Position { get; set; }
-        public DateTime EmployedSince { get; set; }
+        public DateTimeOffset EmployedSince { get; set; }
     }
 }

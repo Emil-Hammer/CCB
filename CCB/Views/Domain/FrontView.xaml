@@ -5,10 +5,18 @@
     xmlns:local="using:CCB.Views.Domain"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="using:CCB.ViewModels.Page"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.DataContext>
+        <page:FrontPageViewModel/>
+    </Page.DataContext>
 
+    <!-- 
+    Grids should always stay within 1* in total width/height
+    -->
+    <Grid>
+       <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
     </Grid>
 </Page>

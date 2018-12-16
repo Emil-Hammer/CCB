@@ -2,13 +2,13 @@
 
 namespace CCB.Data.Domain
 {
-    public partial class Item : DomainClassAppBase
+    public partial class Logbook : DomainClassAppBase
     {
         public override void SetDefaultValues()
         {
-            Name = "";
-            AmountAvailable = 0;
-            AmountAllocated = 0;
+            Name = "(not set)";
+            Type = "(not set)";
+            Action = "(not set)";
         }
 
         public override int Key

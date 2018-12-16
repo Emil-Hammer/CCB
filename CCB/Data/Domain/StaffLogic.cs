@@ -1,6 +1,5 @@
 ﻿using System;
 using CCB.Data.Base;
-using CCB.Models.App;
 
 namespace CCB.Data.Domain
 {
@@ -8,16 +7,17 @@ namespace CCB.Data.Domain
     {
         public override void SetDefaultValues()
         {
-            Name = "(not set)";
-            Telephone = "(not set)";
-            Position = "(not set)";
+            Name = "";
+            Position = "";
+            Address = "";
+            Telephone = "";
             EmployedSince = DateTimeOffset.Now.Date;
         }
 
         public override int Key
         {
-            get { return Id; }
-            set { Id = value; }
+            get => Id;
+            set => Id = value;
         }
     }
 }

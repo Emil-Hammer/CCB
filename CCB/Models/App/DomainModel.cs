@@ -10,6 +10,7 @@ namespace CCB.Models.App
         private InventoryCatalog _inventoryCatalog;
         private ProjectCatalog _projectCatalog;
         private StaffCatalog _staffCatalog;
+        private LogbookCatalog _logbookCatalog;
         #endregion
 
         #region Events
@@ -30,7 +31,8 @@ namespace CCB.Models.App
             }
         }
 
-        public static DomainModel Catalogs { get { return Instance; } }
+        public static DomainModel Catalogs => Instance;
+
         #endregion
 
         #region Constructor
@@ -39,13 +41,16 @@ namespace CCB.Models.App
             _inventoryCatalog = new InventoryCatalog();
             _projectCatalog = new ProjectCatalog();
             _staffCatalog = new StaffCatalog();
+            _logbookCatalog = new LogbookCatalog();
         }
         #endregion
 
         #region Properties
-        public InventoryCatalog Cars { get { return _inventoryCatalog; } }
-        public ProjectCatalog Customers { get { return _projectCatalog; } }
-        public StaffCatalog Employees { get { return _staffCatalog; } }
+        public InventoryCatalog ItemCatalog => _inventoryCatalog;
+        public ProjectCatalog ProjectCatalog => _projectCatalog;
+        public StaffCatalog StaffCatalog => _staffCatalog;
+        public LogbookCatalog LogbookCatalog => _logbookCatalog;
+
         #endregion
 
         #region Persistency methods

@@ -11,7 +11,7 @@
     <AssemblyName>CCB</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -122,6 +122,7 @@
     <Compile Include="Configuration\App\AppConfig.cs" />
     <Compile Include="Data\Base\DomainClassAppBase.cs" />
     <Compile Include="Data\Domain\ItemLogic.cs" />
+    <Compile Include="Data\Domain\LogbookLogic.cs" />
     <Compile Include="Data\Domain\ProjectLogic.cs" />
     <Compile Include="Data\Domain\StaffLogic.cs" />
     <Compile Include="Data\Persistent\CCBDBContext.cs" />
@@ -133,13 +134,20 @@
     <Compile Include="Models\App\DomainModel.cs" />
     <Compile Include="Models\Base\CatalogAppBase.cs" />
     <Compile Include="Models\Catalog\InventoryCatalog.cs" />
+    <Compile Include="Models\Catalog\LogbookCatalog.cs" />
     <Compile Include="Models\Catalog\ProjectCatalog.cs" />
     <Compile Include="Models\Catalog\StaffCatalog.cs" />
     <Compile Include="ViewModels\App\AppViewModel.cs" />
     <Compile Include="ViewModels\App\FileViewModel.cs" />
     <Compile Include="ViewModels\Base\DataViewModelAppBase.cs" />
     <Compile Include="ViewModels\Base\PageViewModelAppBase.cs" />
+    <Compile Include="ViewModels\Data\FrontDataViewModel.cs" />
+    <Compile Include="ViewModels\Data\InventoryDataViewModel.cs" />
+    <Compile Include="ViewModels\Data\ProjectDataViewModel.cs" />
     <Compile Include="ViewModels\Data\StaffDataViewModel.cs" />
+    <Compile Include="ViewModels\Page\FrontPageViewModel.cs" />
+    <Compile Include="ViewModels\Page\InventoryPageViewModel.cs" />
+    <Compile Include="ViewModels\Page\ProjectPageViewModel.cs" />
     <Compile Include="ViewModels\Page\StaffPageViewModel.cs" />
     <Compile Include="Views\App\FileView.xaml.cs">
       <DependentUpon>FileView.xaml</DependentUpon>
@@ -169,6 +177,7 @@
     <None Include="efpt.config.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\img\headerhjside.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
