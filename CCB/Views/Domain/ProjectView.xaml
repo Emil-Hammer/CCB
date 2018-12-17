@@ -51,10 +51,8 @@
             </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
-    
-    <!-- 
-    Grids should always stay within 1* in total width/height
-    -->
+
+    <!-- Grid definitions should always be within 1* in total width/height, along with needing to equal out to exactly 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
