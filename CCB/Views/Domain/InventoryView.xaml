@@ -21,7 +21,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-
+    <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
             <CommandBar.Content>
@@ -38,6 +38,8 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+
+            <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">

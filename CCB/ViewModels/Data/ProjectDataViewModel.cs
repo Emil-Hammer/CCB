@@ -9,6 +9,7 @@ namespace CCB.ViewModels.Data
 {
     public class ProjectDataViewModel : DataViewModelAppBase<Project>
     {
+        //Enables the binding of the proceeding values to the Project object
         public ProjectDataViewModel(Project obj) : base(obj, "Project")
         {
         }
@@ -102,6 +103,9 @@ namespace CCB.ViewModels.Data
             }
         }
 
+        /// <summary>
+        /// !!!UNUSED IN OUR PROJECT!!!
+        /// </summary>
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get => DataObject.Key;

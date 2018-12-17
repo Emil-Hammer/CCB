@@ -6,9 +6,11 @@ namespace CCB.ViewModels.Data
 {
     public class FrontDataViewModel : DataViewModelAppBase<Logbook>
     {
+        //Enables the binding of the proceeding values to the LogBook object
         public FrontDataViewModel(Logbook obj) : base(obj, "Item")
         {
         }
+
         public string Name
         {
             get => DataObject.Name.TrimEnd(' ');
@@ -36,6 +38,10 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
+
+        /// <summary>
+        /// !!!UNUSED IN OUR PROJECT!!!
+        /// </summary>
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get => DataObject.Key;

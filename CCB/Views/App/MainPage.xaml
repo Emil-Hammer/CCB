@@ -21,6 +21,7 @@
             </ResourceDictionary>
         </Page.Resources>
 
+        <!-- Main menu -->
         <NavigationView Header="CCBYG"
                     Background="{ThemeResource SystemControlAcrylicWindowBrush}"
                     OpenPaneLength="150"
@@ -35,7 +36,8 @@
             <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Ansatte" Tag="OpenStaffView"/>
         </NavigationView.MenuItems>
 
-            <Frame x:Name="AppFrame">
+        <!-- This shows the different Views -->
+        <Frame x:Name="AppFrame">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition/>
