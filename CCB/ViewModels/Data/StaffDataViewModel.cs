@@ -94,6 +94,6 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public override string ContentText => Telephone;
+        public override string ContentText => $"Adresse: {Address} \t \t Tlf: {Telephone} \t \t Titel: {Position} \t \t Ansat siden: {Employed.Date.ToShortDateString()}";
     }
 }

@@ -68,18 +68,24 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection}"
+                  ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                    </StackPanel>
+                    <Grid Style="{StaticResource GridItemTemplateStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*" MinWidth="250"/>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0" />
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1" />
+                        <TextBlock Margin="100,0,0,0" Grid.Column="2" Text="Status: ||||||||||||||||||||||||||||" Foreground="{Binding CompletionColor}"></TextBlock>
+
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
