@@ -21,6 +21,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
+    <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
             <CommandBar.Content>
@@ -37,6 +38,8 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+
+            <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -50,9 +53,7 @@
         </CommandBar>
     </Page.BottomAppBar>
     
-    <!-- 
-    Grids should always stay within 1* in total width/height
-    -->
+    <!-- Grids should always stay within 1* in total width/height -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -68,18 +69,24 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection}"
+                  ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                    </StackPanel>
+                    <Grid Style="{StaticResource GridItemTemplateStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*" MinWidth="250"/>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0" />
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1" />
+                        <TextBlock Margin="100,0,0,0" Grid.Column="2" Text="Status: ||||||||||||||||||||||||||||" Foreground="{Binding CompletionColor}"></TextBlock>
+
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -89,6 +96,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                <!-- Address of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -98,6 +106,7 @@
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
+                <!-- Telephone of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Telefon" />
@@ -107,6 +116,7 @@
                              Text="{Binding ItemDetails.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
+                <!-- Start date of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Start"/>
@@ -116,6 +126,7 @@
                                         Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
 
+                <!-- Deadline date of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Deadline"/>
@@ -125,6 +136,7 @@
                                         Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
 
+                <!-- IsFinished boolean of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Færdiggjort"/>
@@ -133,6 +145,7 @@
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"  IsChecked="{Binding ItemDetails.IsFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
 
+                <!-- Description of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDescriptionStyle}"
                                Text="Beskrivelse"/>

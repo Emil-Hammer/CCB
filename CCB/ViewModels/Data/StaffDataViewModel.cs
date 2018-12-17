@@ -6,6 +6,7 @@ namespace CCB.ViewModels.Data
 {
     public class StaffDataViewModel : DataViewModelAppBase<Staff>
     {
+        //Enables the binding of the proceeding values to the Staff object
         public StaffDataViewModel(Staff obj) : base(obj, "Staff")
         {
         }
@@ -60,6 +61,9 @@ namespace CCB.ViewModels.Data
             }
         }
 
+        /// <summary>
+        /// !!!UNUSED IN OUR PROJECT!!!
+        /// </summary>
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get => DataObject.Key;
@@ -91,6 +95,6 @@ namespace CCB.ViewModels.Data
             }
         }
 
-        public override string ContentText => Telephone;
+        public override string ContentText => $"Adresse: {Address} \t \t Tlf: {Telephone} \t \t Titel: {Position} \t \t Ansat siden: {Employed.Date.ToShortDateString()}";
     }
 }

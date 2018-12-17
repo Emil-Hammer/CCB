@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:page="using:CCB.ViewModels.Page"
-    xmlns:app="using:CCB.ViewModels.App"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -20,6 +19,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
+    <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
             <CommandBar.Content>
@@ -36,6 +36,8 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+
+            <!-- ViewStates -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -49,7 +51,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <!-- Grid should always be within one 1* -->
+    <!-- Grid definitions should always be within one 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -65,18 +67,21 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection}"
+                  ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
             <ListView.ItemTemplate>
                     <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                        </StackPanel>
+                    <Grid Style="{StaticResource GridItemTemplateStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*" MinWidth="150"/>
+                            <ColumnDefinition Width="0.9*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0"/>
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1"/>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -84,7 +89,7 @@
             <!-- Details view -->
             <!-- The various ControlStates can be found in the PageViewModels -->
             <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
-
+                <!-- Name of Staff -->
                 <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
@@ -94,7 +99,8 @@
                              Visibility="{Binding ControlStates[Name].VisibilityState}"
                              Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
-
+                    
+                    <!-- Address of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -104,6 +110,7 @@
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
+                    <!-- Position of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Titel" />
@@ -113,8 +120,7 @@
                              Text="{Binding ItemDetails.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal"/>
-
+                    <!-- Employed date of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Ansat"/>
@@ -124,6 +130,7 @@
                                 Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                     </StackPanel>
 
+                    <!-- Telephone of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                        Text="Telefon"/>
@@ -132,7 +139,6 @@
                                      Visibility="{Binding ControlStates[Telephone].VisibilityState}"
                                      Text="{Binding ItemDetails.Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

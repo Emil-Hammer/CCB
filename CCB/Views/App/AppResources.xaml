@@ -55,8 +55,7 @@
     </Style>
 
     <!--StackPanel Styles-->
-    <Style x:Key="StackPanelItemTemplateStyle" TargetType="StackPanel">
-        <Setter Property="Orientation" Value="Horizontal"/>
+    <Style x:Key="GridItemTemplateStyle" TargetType="Grid">
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="StackPanelDetailsOuterStyle" TargetType="StackPanel">

@@ -6,6 +6,7 @@ namespace CCB.ViewModels.App
 {
     public class AppViewModel : AppViewModelMenu
     {
+        //Adds menu items to the sidebar menu.
         public override void AddCommands()
         {
             NavigationCommands.Add("OpenFrontView", new NavigationCommand(AppFrame, typeof(FrontView)));

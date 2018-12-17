@@ -7,6 +7,13 @@
     xmlns:app="using:CCB.ViewModels.App"
     mc:Ignorable="d">
 
+    <!--
+    !!!!!
+    NOTE
+    !!!!!
+    
+    THIS VIEW NOT USED IN CURRENT CONTEXT
+    -->
     <Page.DataContext>
         <app:FileViewModel/>
     </Page.DataContext>

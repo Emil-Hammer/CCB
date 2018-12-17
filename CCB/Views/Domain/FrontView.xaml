@@ -13,10 +13,9 @@
         <page:FrontPageViewModel/>
     </Page.DataContext>
 
-    <!-- 
-    Grids should always stay within 1* in total width/height
-    -->
+    <!-- Grids should always stay within 1* in total width/height -->
     <Grid>
-       <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
+        <!-- Logo of CCByg -->
+        <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
     </Grid>
 </Page>
