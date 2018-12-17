@@ -65,18 +65,21 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection}"
+                  ItemsSource="{Binding ItemCollection}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
             <ListView.ItemTemplate>
                     <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                        </StackPanel>
+                    <Grid Style="{StaticResource GridItemTemplateStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*" MinWidth="150"/>
+                            <ColumnDefinition Width="0.9*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0"/>
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1"/>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

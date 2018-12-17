@@ -23,13 +23,6 @@ namespace CCB.ViewModels.Page
             return new InventoryDataViewModel(obj);
         }
 
-        public IOrderedEnumerable<IDataWrapper<Item>> SortedItemCollection
-        {
-            get
-            {
-                OnPropertyChanged();
-                return ItemCollection.OrderBy(m => m.DataObject.Name);
-            }
-        }
+        public override ObservableCollection<IDataWrapper<Item>> ItemCollection => new ObservableCollection<IDataWrapper<Item>>(base.ItemCollection.OrderBy(m=>m.DataObject.Name));
     }
 }

@@ -69,18 +69,21 @@
 
         <!-- Collection view -->
         <ListView Grid.Row="1" Grid.Column="0" Style="{StaticResource ListViewStyle}"
-                  ItemsSource="{Binding SortedItemCollection, Mode=TwoWay}"
+                  ItemsSource="{Binding ItemCollection, Mode=TwoWay}"
                   SelectedItem="{Binding ItemSelected, Mode=TwoWay}"
                   IsEnabled="{Binding ControlStates[ItemSelectorControl].Enabled}"
                   Visibility="{Binding ControlStates[ItemSelectorControl].VisibilityState}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Style="{StaticResource StackPanelItemTemplateStyle}">
-                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" />
-                        <TextBlock Style="{StaticResource TextBlockItemSeparatorStyle}" Text="-"/>
-                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" />
-                    </StackPanel>
+                    <Grid Style="{StaticResource GridItemTemplateStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.4*" MinWidth="450"/>
+                            <ColumnDefinition Width="0.6*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0" />
+                        <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1" />
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -107,8 +110,8 @@
                              Visibility="{Binding ControlStates[Amount].VisibilityState}"
                              Text="{Binding ItemDetails.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <Button Content="˄" Command="{Binding ItemDetails.AmountUpCommand}" MinWidth="30"/>
-                    <Button Content="˅" Command="{Binding ItemDetails.AmountDownCommand}" MinWidth="30"/>
+                    <Button Content="˄" Command="{Binding ItemDetails.AmountUpCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[Amount].Enabled}"/>
+                    <Button Content="˅" Command="{Binding ItemDetails.AmountDownCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[Amount].Enabled}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
@@ -118,8 +121,8 @@
                              Visibility="{Binding ControlStates[AmountAllocated].VisibilityState}"
                              Text="{Binding ItemDetails.AmountAllocated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <Button Content="˄" Command="{Binding ItemDetails.AllocatedUpCommand}" MinWidth="30"/>
-                    <Button Content="˅" Command="{Binding ItemDetails.AllocatedDownCommand}" MinWidth="30"/>
+                    <Button Content="˄" Command="{Binding ItemDetails.AllocatedUpCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"/>
+                    <Button Content="˅" Command="{Binding ItemDetails.AllocatedDownCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
