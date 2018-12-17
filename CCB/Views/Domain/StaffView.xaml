@@ -20,6 +20,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
+    <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
             <CommandBar.Content>
@@ -36,6 +37,8 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+            
+            <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -49,7 +52,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <!-- Grid should always be within one 1* -->
+    <!-- Grid definitions should always be within one 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -86,6 +89,7 @@
             <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
                 <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                    <!-- Name of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Navn" />
@@ -95,6 +99,7 @@
                              Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
+                    <!-- Address of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -104,6 +109,7 @@
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
+                    <!-- Job title of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Titel" />
@@ -115,6 +121,7 @@
 
                     <StackPanel Orientation="Horizontal"/>
 
+                    <!-- Date of employment of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Ansat"/>
@@ -124,6 +131,7 @@
                                 Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                     </StackPanel>
 
+                    <!-- Phone number of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                        Text="Telefon"/>

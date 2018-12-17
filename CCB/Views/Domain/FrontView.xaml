@@ -17,6 +17,7 @@
     Grids should always stay within 1* in total width/height
     -->
     <Grid>
+        <!-- Nothing but a fucking image. -->
        <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
     </Grid>
 </Page>

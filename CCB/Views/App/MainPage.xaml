@@ -20,7 +20,8 @@
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Page.Resources>
-
+        
+        <!-- Main menu. TODO: Make the thing stay open already -->
         <NavigationView Header="CCBYG"
                     Background="{ThemeResource SystemControlAcrylicWindowBrush}"
                     OpenPaneLength="150"
@@ -35,6 +36,7 @@
             <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Ansatte" Tag="OpenStaffView"/>
         </NavigationView.MenuItems>
 
+            <!-- This calls on the different Views -->
             <Frame x:Name="AppFrame">
                 <Frame.ContentTransitions>
                     <TransitionCollection>

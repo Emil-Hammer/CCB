@@ -14,6 +14,7 @@ namespace CCB.ViewModels.Data
 {
     public class InventoryDataViewModel : DataViewModelAppBase<Item>
     {
+        //Enables the binding of the proceeding values to the Item object
         public InventoryDataViewModel(Item obj) : base(obj, "Item")
         {
         }
@@ -117,6 +118,9 @@ namespace CCB.ViewModels.Data
             }
         }
 
+        /// <summary>
+        /// !!!UNUSED IN OUR PROJECT!!!
+        /// </summary>
         public override int ImageKey // Skal fjernes (ved ikke lige hvordan da den addon den bruger kræver det)
         {
             get => DataObject.Key;

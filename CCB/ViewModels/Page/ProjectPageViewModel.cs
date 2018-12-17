@@ -10,17 +10,24 @@ namespace CCB.ViewModels.Page
 {
     public class ProjectPageViewModel : PageViewModelAppBase<Project>
     {
+        //ControlStates of ProjectView
         public ProjectPageViewModel()
+            //Insert into the catalog:
             : base(DomainModel.Catalogs.ProjectCatalog,
+                //Non-editable ControlStates
                 new List<string> { },
+                //Editable ControlStates
                 new List<string> { "Description", "Address", "Telephone", "Start", "Deadline" })
         {
         }
 
+        //Creates a DataViewModel and references it. Used for properties in the View
         public override IDataWrapper<Project> CreateDataViewModel(Project obj)
         {
             return new ProjectDataViewModel(obj);
         }
+
+        //Sets up data in the item collection in the ProjectView
         public IOrderedEnumerable<IDataWrapper<Project>> SortedItemCollection
         {
             get

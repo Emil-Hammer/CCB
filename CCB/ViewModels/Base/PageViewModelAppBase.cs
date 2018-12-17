@@ -27,6 +27,7 @@ namespace CCB.ViewModels.Base
 
         public Dictionary<string, FontWeight> MenuFontWeights => _menuFontWeights;
 
+        //Shows the selected item in Bold
         private void UpdateFontWeights()
         {
             _menuFontWeights.Clear();
