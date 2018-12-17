@@ -39,7 +39,6 @@
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
 
-
             <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
@@ -54,7 +53,9 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <!-- Grid definitions should always be within 1* in total width/height, along with needing to equal out to exactly 1* -->
+    <!-- 
+    Grids should always stay within 1* in total width/height
+    -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -92,8 +93,8 @@
         <!-- Details view -->
         <!-- The various ControlStates can be found in the PageViewModels -->
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
+
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
-                <!-- Name of item -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Navn" />
@@ -102,7 +103,7 @@
                              Visibility="{Binding ControlStates[Name].VisibilityState}"
                              Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-                <!-- Amount of item -->
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Antal" />
@@ -114,7 +115,6 @@
                     <Button Content="˄" Command="{Binding ItemDetails.AmountUpCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[Amount].Enabled}"/>
                     <Button Content="˅" Command="{Binding ItemDetails.AmountDownCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[Amount].Enabled}"/>
                 </StackPanel>
-                <!-- AmountAllocated of item -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Reserveret" />
@@ -126,7 +126,6 @@
                     <Button Content="˄" Command="{Binding ItemDetails.AllocatedUpCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"/>
                     <Button Content="˅" Command="{Binding ItemDetails.AllocatedDownCommand}" MinWidth="30" IsEnabled="{Binding ControlStates[AmountAllocated].Enabled}"/>
                 </StackPanel>
-                <!-- Number available of item -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Tilgængeligt" />

@@ -13,9 +13,9 @@
         <page:FrontPageViewModel/>
     </Page.DataContext>
 
-    <!-- Grid definitions should always be within 1* in total width/height, along with needing to equal out to exactly 1* -->
+    <!-- Grids should always stay within 1* in total width/height -->
     <Grid>
-        <!-- Nothing but a fucking image. -->
-       <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
+        <!-- Logo of CCByg -->
+        <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />
     </Grid>
 </Page>

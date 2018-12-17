@@ -60,6 +60,7 @@ namespace CCB.ViewModels.Data
                 OnPropertyChanged();
             }
         }
+
         /// <summary>
         /// !!!UNUSED IN OUR PROJECT!!!
         /// </summary>

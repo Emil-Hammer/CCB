@@ -7,7 +7,7 @@ namespace CCB.ViewModels.Data
     public class FrontDataViewModel : DataViewModelAppBase<Logbook>
     {
         //Enables the binding of the proceeding values to the LogBook object
-        public FrontDataViewModel(Logbook obj) : base(obj, "LogBook")
+        public FrontDataViewModel(Logbook obj) : base(obj, "Item")
         {
         }
 

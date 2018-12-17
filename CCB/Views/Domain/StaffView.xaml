@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:page="using:CCB.ViewModels.Page"
-    xmlns:app="using:CCB.ViewModels.App"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -37,8 +36,8 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
-            
-            <!-- View states -->
+
+            <!-- ViewStates -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -52,7 +51,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <!-- Grid definitions should always be within 1* in total width/height, along with needing to equal out to exactly 1* -->
+    <!-- Grid definitions should always be within one 1* -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -90,9 +89,8 @@
             <!-- Details view -->
             <!-- The various ControlStates can be found in the PageViewModels -->
             <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
-
+                <!-- Name of Staff -->
                 <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
-                    <!-- Name of staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Navn" />
@@ -101,8 +99,8 @@
                              Visibility="{Binding ControlStates[Name].VisibilityState}"
                              Text="{Binding ItemDetails.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
-
-                    <!-- Address of staff -->
+                    
+                    <!-- Address of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -112,7 +110,7 @@
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
-                    <!-- Job title of staff -->
+                    <!-- Position of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Titel" />
@@ -122,9 +120,7 @@
                              Text="{Binding ItemDetails.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal"/>
-
-                    <!-- Date of employment of staff -->
+                    <!-- Employed date of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Ansat"/>
@@ -134,7 +130,7 @@
                                 Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                     </StackPanel>
 
-                    <!-- Phone number of staff -->
+                    <!-- Telephone of Staff -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                        Text="Telefon"/>
@@ -143,7 +139,6 @@
                                      Visibility="{Binding ControlStates[Telephone].VisibilityState}"
                                      Text="{Binding ItemDetails.Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

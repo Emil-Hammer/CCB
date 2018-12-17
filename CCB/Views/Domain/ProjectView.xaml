@@ -20,7 +20,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
@@ -38,6 +38,7 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+
             <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
@@ -51,8 +52,8 @@
             </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
-
-    <!-- Grid definitions should always be within 1* in total width/height, along with needing to equal out to exactly 1* -->
+    
+    <!-- Grids should always stay within 1* in total width/height -->
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -95,7 +96,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
-                <!-- Address of project -->
+                <!-- Address of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -104,7 +105,8 @@
                              Visibility="{Binding ControlStates[Address].VisibilityState}"
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-                <!-- Phone number of project owner -->
+
+                <!-- Telephone of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Telefon" />
@@ -113,7 +115,8 @@
                              Visibility="{Binding ControlStates[Telephone].VisibilityState}"
                              Text="{Binding ItemDetails.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-                <!-- Start date of project -->
+
+                <!-- Start date of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Start"/>
@@ -122,7 +125,8 @@
                                         Visibility="{Binding ControlStates[Start].VisibilityState}"
                                         Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-                <!-- Deadline of project -->
+
+                <!-- Deadline date of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Deadline"/>
@@ -131,7 +135,8 @@
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"
                                         Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-                <!-- Is project finished -->
+
+                <!-- IsFinished boolean of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Færdiggjort"/>
@@ -139,7 +144,8 @@
                                         IsEnabled="{Binding ControlStates[Deadline].Enabled}"
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"  IsChecked="{Binding ItemDetails.IsFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-                <!-- Description of project -->
+
+                <!-- Description of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDescriptionStyle}"
                                Text="Beskrivelse"/>
