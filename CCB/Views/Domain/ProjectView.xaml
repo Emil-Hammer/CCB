@@ -20,7 +20,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-
+    
+    <!-- Confirmation buttons -->
     <Page.BottomAppBar>
         <CommandBar Style="{StaticResource CommandBarStyle}">
             <CommandBar.Content>
@@ -37,6 +38,7 @@
                           IsEnabled="{Binding ControlStates[DeleteControl].Enabled}"
                           Command="{Binding DataCommand[DeleteCommand]}"/>
             <AppBarSeparator/>
+            <!-- View states -->
             <AppBarButton Icon="Setting" Label="Visningstilstand">
                 <AppBarButton.Flyout>
                     <MenuFlyout Placement="Bottom">
@@ -89,6 +91,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                <!-- Address of project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Adresse" />
@@ -97,7 +100,7 @@
                              Visibility="{Binding ControlStates[Address].VisibilityState}"
                              Text="{Binding ItemDetails.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-
+                <!-- Phone number of project owner -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"
                                Text="Telefon" />
@@ -106,7 +109,7 @@
                              Visibility="{Binding ControlStates[Telephone].VisibilityState}"
                              Text="{Binding ItemDetails.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
-
+                <!-- Start date of project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Start"/>
@@ -115,7 +118,7 @@
                                         Visibility="{Binding ControlStates[Start].VisibilityState}"
                                         Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-
+                <!-- Deadline of project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Deadline"/>
@@ -124,7 +127,7 @@
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"
                                         Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-
+                <!-- Is project finished -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}" 
                                Text="Færdiggjort"/>
@@ -132,7 +135,7 @@
                                         IsEnabled="{Binding ControlStates[Deadline].Enabled}"
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"  IsChecked="{Binding ItemDetails.IsFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 </StackPanel>
-
+                <!-- Description of project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDescriptionStyle}"
                                Text="Beskrivelse"/>
