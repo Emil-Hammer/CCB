@@ -25,7 +25,6 @@ namespace CCB.ViewModels.Page
         {
             return new FrontDataViewModel(obj);
         }
-
         
     }
 }
