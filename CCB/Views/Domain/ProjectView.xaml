@@ -96,6 +96,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                <!-- Status of Project -->
                 <StackPanel>
                     <TextBlock HorizontalAlignment="Center" FontSize="18" Text="{Binding ItemDetails.ProjectStatus, Mode=OneWay}"/>
                 </StackPanel>

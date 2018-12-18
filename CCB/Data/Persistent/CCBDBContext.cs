@@ -1,7 +1,5 @@
-﻿using System;
-using CCB.Data.Domain;
+﻿using CCB.Data.Domain;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CCB.Data.Persistent
 {
@@ -45,6 +43,7 @@ namespace CCB.Data.Persistent
                     .HasColumnName("name")
                     .HasMaxLength(50);
             });
+
 
             modelBuilder.Entity<Project>(entity =>
             {
