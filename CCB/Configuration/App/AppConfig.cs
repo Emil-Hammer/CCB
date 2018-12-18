@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml.Controls;
 using CCB.Models.App;
 using CCB.ViewModels.App;
+using CCB.Views.App;
 using CCB.Views.Domain;
 
 namespace CCB.Configuration.App

@@ -10,7 +10,6 @@ namespace CCB.Models.App
         private InventoryCatalog _inventoryCatalog;
         private ProjectCatalog _projectCatalog;
         private StaffCatalog _staffCatalog;
-        private LogbookCatalog _logbookCatalog;
         #endregion
 
         #region Events
@@ -41,7 +40,6 @@ namespace CCB.Models.App
             _inventoryCatalog = new InventoryCatalog();
             _projectCatalog = new ProjectCatalog();
             _staffCatalog = new StaffCatalog();
-            _logbookCatalog = new LogbookCatalog();
         }
         #endregion
 
@@ -49,7 +47,6 @@ namespace CCB.Models.App
         public InventoryCatalog ItemCatalog => _inventoryCatalog;
         public ProjectCatalog ProjectCatalog => _projectCatalog;
         public StaffCatalog StaffCatalog => _staffCatalog;
-        public LogbookCatalog LogbookCatalog => _logbookCatalog;
 
         #endregion
 

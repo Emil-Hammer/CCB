@@ -21,6 +21,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Address = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -31,6 +32,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Description = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -41,6 +43,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Telephone = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -51,6 +54,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Deadline = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -61,6 +65,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Start = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -71,6 +76,36 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.IsFinished = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
+            }
+        }
+
+        //ProjectStatus, ColorToNumber and CompletionColor(Method) should be rewritten to keep code DRY.
+        public string ProjectStatus
+        {
+            get
+            {
+                if (!IsFinished && Deadline.Value.Ticks < DateTime.Now.Ticks)
+                {
+                    return "Deadline overskredet!";
+                }
+
+                if (!IsFinished && Deadline.Value.Ticks > DateTime.Now.Ticks && Start.Ticks <= DateTime.Now.Ticks)
+                {
+                    return "Projekt i gang!";
+                }
+
+                if (IsFinished)
+                {
+                    return "Projekt færdiggjort!";
+                }
+
+                if (!IsFinished && Start.Ticks > DateTime.Now.Ticks)
+                {
+                    return "Projekt ikke startet endnu!";
+                }
+
+                return "";
             }
         }
 
@@ -113,6 +148,7 @@ namespace CCB.ViewModels.Data
             {
                 DataObject.Key = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ExceededDeadline");
             }
         }
 
@@ -156,8 +192,6 @@ namespace CCB.ViewModels.Data
                 return new SolidColorBrush(Colors.Gainsboro);
             }
         }
-
-
 
         public override string HeaderText => Address;
     }
