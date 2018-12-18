@@ -84,7 +84,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Style="{StaticResource TextBlockItemHeaderStyle}" Text="{Binding HeaderText}" Grid.Column="0" />
                         <TextBlock Style="{StaticResource TextBlockItemContentStyle}" Text="{Binding ContentText}" Grid.Column="1" />
-                        <TextBlock Margin="100,0,0,0" Grid.Column="2" Text="Status: ||||||||||||||||||||||||||||" Foreground="{Binding CompletionColor}"></TextBlock>
+                        <TextBlock Margin="100,0,0,0" Grid.Column="2" Foreground="{Binding CompletionColor}">Status: &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</TextBlock>
 
                     </Grid>
                 </DataTemplate>
@@ -96,6 +96,11 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource StackPanelDetailsOuterStyle}">
 
             <StackPanel Style="{StaticResource StackPanelDetailsMidStyle}">
+                <!-- Status of Project -->
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" FontSize="18" Text="{Binding ItemDetails.ProjectStatus, Mode=OneWay}"/>
+                </StackPanel>
+
                 <!-- Address of Project -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource TextBlockDetailsHeaderStyle}"

@@ -15,8 +15,6 @@ namespace CCB.Data.Persistent
         }
 
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<ItemAllocation> ItemAllocations { get; set; }
-        public virtual DbSet<Logbook> Logbooks { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
 
@@ -46,56 +44,6 @@ namespace CCB.Data.Persistent
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ItemAllocation>(entity =>
-            {
-                entity.ToTable("ItemAllocation");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Amount).HasColumnName("amount");
-
-                entity.Property(e => e.FkItemId).HasColumnName("fk_itemId");
-
-                entity.Property(e => e.FkProjectId).HasColumnName("fk_projectId");
-
-                entity.HasOne(d => d.FkItem)
-                    .WithMany(p => p.ItemAllocations)
-                    .HasForeignKey(d => d.FkItemId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_it__151B244E");
-
-                entity.HasOne(d => d.FkProject)
-                    .WithMany(p => p.ItemAllocations)
-                    .HasForeignKey(d => d.FkProjectId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ItemAlloc__fk_pr__14270015");
-            });
-
-            modelBuilder.Entity<Logbook>(entity =>
-            {
-                entity.ToTable("Logbook");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Action)
-                    .IsRequired()
-                    .HasColumnName("action")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Type)
-                    .IsRequired()
-                    .HasColumnName("type")
-                    .HasMaxLength(50);
-            });
 
             modelBuilder.Entity<Project>(entity =>
             {
@@ -151,7 +99,6 @@ namespace CCB.Data.Persistent
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Domain.Logbook>().Ignore(item => item.Key);
             modelBuilder.Entity<Domain.Item>().Ignore(item => item.Key);
             modelBuilder.Entity<Domain.Project>().Ignore(item => item.Key);
             modelBuilder.Entity<Domain.Staff>().Ignore(item => item.Key);

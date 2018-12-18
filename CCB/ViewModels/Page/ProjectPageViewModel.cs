@@ -34,7 +34,7 @@ namespace CCB.ViewModels.Page
         {
             get
             {
-                return new ObservableCollection<IDataWrapper<Project>>(base.ItemCollection.OrderBy(m =>((ProjectDataViewModel)m).ColorToNumber).ThenBy(n => n.DataObject.Address)); // .ThenBy(n => n.DataObject.Address // Virker ikke rigtigt
+                return new ObservableCollection<IDataWrapper<Project>>(base.ItemCollection.OrderBy(m =>((ProjectDataViewModel)m).ColorToNumber).ThenBy(n => n.DataObject.Address));
             }
         }
     }

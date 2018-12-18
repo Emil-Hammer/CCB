@@ -9,11 +9,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <page:FrontPageViewModel/>
-    </Page.DataContext>
-
-    <!-- Grids should always stay within 1* in total width/height -->
     <Grid>
         <!-- Logo of CCByg -->
         <Image Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Assets\img\headerhjside.png" />

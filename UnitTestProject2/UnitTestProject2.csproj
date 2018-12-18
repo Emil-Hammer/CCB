@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{E17449AB-8514-4E08-BD79-31E52BD98882}</ProjectGuid>
+    <ProjectGuid>{071A43A5-F141-4054-A354-5B4E17AEA1B6}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CCB</RootNamespace>
-    <AssemblyName>CCB</AssemblyName>
+    <RootNamespace>UnitTestProject2</RootNamespace>
+    <AssemblyName>UnitTestProject2</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>CCB_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>UnitTestProject2_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <UnitTestPlatformVersion Condition="'$(UnitTestPlatformVersion)' == ''">$(VisualStudioVersion)</UnitTestPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -116,65 +116,29 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\App\AppConfig.cs" />
-    <Compile Include="Data\Base\DomainClassAppBase.cs" />
-    <Compile Include="Data\Domain\ItemLogic.cs" />
-    <Compile Include="Data\Domain\LogbookLogic.cs" />
-    <Compile Include="Data\Domain\ProjectLogic.cs" />
-    <Compile Include="Data\Domain\StaffLogic.cs" />
-    <Compile Include="Data\Persistent\CCBDBContext.cs" />
-    <Compile Include="Data\Domain\Item.cs" />
-    <Compile Include="Data\Domain\Project.cs" />
-    <Compile Include="Data\Domain\Staff.cs" />
-    <Compile Include="Models\App\DomainModel.cs" />
-    <Compile Include="Models\Base\CatalogAppBase.cs" />
-    <Compile Include="Models\Catalog\InventoryCatalog.cs" />
-    <Compile Include="Models\Catalog\LogbookCatalog.cs" />
-    <Compile Include="Models\Catalog\ProjectCatalog.cs" />
-    <Compile Include="Models\Catalog\StaffCatalog.cs" />
-    <Compile Include="ViewModels\App\AppViewModel.cs" />
-    <Compile Include="ViewModels\App\FileViewModel.cs" />
-    <Compile Include="ViewModels\Base\DataViewModelAppBase.cs" />
-    <Compile Include="ViewModels\Base\PageViewModelAppBase.cs" />
-    <Compile Include="ViewModels\Data\InventoryDataViewModel.cs" />
-    <Compile Include="ViewModels\Data\ProjectDataViewModel.cs" />
-    <Compile Include="ViewModels\Data\StaffDataViewModel.cs" />
-    <Compile Include="ViewModels\Page\InventoryPageViewModel.cs" />
-    <Compile Include="ViewModels\Page\ProjectPageViewModel.cs" />
-    <Compile Include="ViewModels\Page\StaffPageViewModel.cs" />
-    <Compile Include="Views\App\FileView.xaml.cs">
-      <DependentUpon>FileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\App\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Domain\FrontView.xaml.cs">
-      <DependentUpon>FrontView.xaml</DependentUpon>
+    <Compile Include="UnitTestApp.xaml.cs">
+      <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Domain\InventoryView.xaml.cs">
-      <DependentUpon>InventoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Domain\ProjectView.xaml.cs">
-      <DependentUpon>ProjectView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Domain\StaffView.xaml.cs">
-      <DependentUpon>StaffView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="UnitTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="UnitTestApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="CCB_TemporaryKey.pfx" />
-    <None Include="efpt.config.json" />
+    <None Include="UnitTestProject2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\img\headerhjside.png" />
-    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Properties\UnitTestApp.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -184,75 +148,55 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Views\App\AppResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\App\FileView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\App\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Domain\FrontView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Domain\InventoryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Domain\ProjectView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Domain\StaffView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
-      <Version>2.2.0</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>
     </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter">
+      <Version>1.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>1.3.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AddOns">
-      <HintPath>Libs\AddOns.dll</HintPath>
-    </Reference>
-    <Reference Include="Commands">
-      <HintPath>Libs\Commands.dll</HintPath>
-    </Reference>
-    <Reference Include="Controllers">
-      <HintPath>Libs\Controllers.dll</HintPath>
-    </Reference>
-    <Reference Include="Data">
-      <HintPath>Libs\Data.dll</HintPath>
-    </Reference>
-    <Reference Include="DataSources">
-      <HintPath>Libs\DataSources.dll</HintPath>
-    </Reference>
-    <Reference Include="Extensions">
-      <HintPath>Libs\Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Model">
-      <HintPath>Libs\Model.dll</HintPath>
-    </Reference>
-    <Reference Include="ViewModel">
-      <HintPath>Libs\ViewModel.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\CCB\CCB.csproj">
+      <Project>{e17449ab-8514-4e08-bd79-31e52bd98882}</Project>
+      <Name>CCB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Libs\" />
+    <Reference Include="AddOns, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\AddOns.dll</HintPath>
+    </Reference>
+    <Reference Include="Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="Controllers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DataSources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\DataSources.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCB\Libs\ViewModel.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
