@@ -128,7 +128,8 @@
                     <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
                                         IsEnabled="{Binding ControlStates[Start].Enabled}"
                                         Visibility="{Binding ControlStates[Start].VisibilityState}"
-                                        Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                        Date="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                                        DateFormat="{}{day.integer(2)}-{month.abbreviated}-{year.full}"/>
                 </StackPanel>
 
                 <!-- Deadline date of Project -->
@@ -138,7 +139,9 @@
                     <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
                                         IsEnabled="{Binding ControlStates[Deadline].Enabled}"
                                         Visibility="{Binding ControlStates[Deadline].VisibilityState}"
-                                        Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                        Date="{Binding ItemDetails.Deadline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        DateFormat="{}{day.integer(2)}-{month.abbreviated}-{year.full}"
+                                        MinDate="{Binding ItemDetails.Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <!-- IsFinished boolean of Project -->
