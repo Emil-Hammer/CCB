@@ -127,7 +127,8 @@
                         <CalendarDatePicker Style ="{StaticResource CalendarDatePickerDetailsStyle}"
                                 IsEnabled="{Binding ControlStates[Employed].Enabled}"
                                 Visibility="{Binding ControlStates[Employed].VisibilityState}"
-                                Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                Date="{Binding ItemDetails.Employed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                                DateFormat="{}{day.integer(2)}-{month.abbreviated}-{year.full}"/>
                     </StackPanel>
 
                     <!-- Telephone of Staff -->
